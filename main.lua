@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 27 | Scripts: 3 | Modules: 1 | Tags: 0
+-- Instances: 31 | Scripts: 3 | Modules: 1 | Tags: 0
 local G2L = {};
 
 -- StarterGui.Sigmaware
@@ -232,6 +232,7 @@ G2L["19"]["CornerRadius"] = UDim.new(1, 0);
 -- StarterGui.Sigmaware.xxx.pfp.UIStroke
 G2L["1a"] = Instance.new("UIStroke", G2L["18"]);
 G2L["1a"]["Thickness"] = 1.5;
+G2L["1a"]["Color"] = Color3.fromRGB(255, 255, 255);
 
 
 -- StarterGui.Sigmaware.xxx.HealthBar
@@ -244,6 +245,46 @@ G2L["1b"]["Size"] = UDim2.new(0.005, 0, 0.6, 0);
 G2L["1b"]["Position"] = UDim2.new(0.29, 0, 0.85, 0);
 G2L["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["1b"]["Name"] = [[HealthBar]];
+
+
+-- StarterGui.Sigmaware.xxx.Left
+G2L["1c"] = Instance.new("Frame", G2L["13"]);
+G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1c"]["Size"] = UDim2.new(0.25, 0, 0.6, 0);
+G2L["1c"]["Position"] = UDim2.new(0.035, 0, 0.25, 0);
+G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Name"] = [[Left]];
+G2L["1c"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.Sigmaware.xxx.Left.UIListLayout
+G2L["1d"] = Instance.new("UIListLayout", G2L["1c"]);
+G2L["1d"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
+G2L["1d"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.Sigmaware.xxx.Left.HealthText
+G2L["1e"] = Instance.new("TextLabel", G2L["1c"]);
+G2L["1e"]["TextWrapped"] = true;
+G2L["1e"]["BorderSizePixel"] = 0;
+G2L["1e"]["TextSize"] = 14;
+G2L["1e"]["TextXAlignment"] = Enum.TextXAlignment.Right;
+G2L["1e"]["TextScaled"] = true;
+G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["BackgroundTransparency"] = 1;
+G2L["1e"]["Size"] = UDim2.new(0.1, 0, 0.1, 0);
+G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["Text"] = [[100 hp]];
+G2L["1e"]["Name"] = [[HealthText]];
+
+
+-- StarterGui.Sigmaware.xxx.Left.HealthText.UIStroke
+G2L["1f"] = Instance.new("UIStroke", G2L["1e"]);
+G2L["1f"]["Transparency"] = 0.35;
+G2L["1f"]["Thickness"] = 1.5;
 
 
 -- Require G2L wrapper
@@ -269,6 +310,7 @@ module.Settings = {
     ESP_Enabled = false,
     ESP_Box = false,
     ESP_HealthBar = false,
+    ESP_HealthText = false,
     ESP_Name = false,
     ESP_Pfp = false,
     ESP_Glow = false,
@@ -427,7 +469,8 @@ local script = G2L["f"];
 	-- Visuals Tab
 	MenuHandling.CreateCheckBox("VisualsTab", "Enabled", "ESP_Enabled")
 	MenuHandling.CreateCheckBox("VisualsTab", "Box", "ESP_Box")
-	MenuHandling.CreateCheckBox("VisualsTab", "HealthBar", "ESP_HealthBar")
+	MenuHandling.CreateCheckBox("VisualsTab", "Health Bar", "ESP_HealthBar")
+	MenuHandling.CreateCheckBox("VisualsTab", "Health Text", "ESP_HealthText")
 	MenuHandling.CreateCheckBox("VisualsTab", "Name", "ESP_Name")
 	MenuHandling.CreateCheckBox("VisualsTab", "Pfp", "ESP_Pfp")
 	MenuHandling.CreateCheckBox("VisualsTab", "Glow", "ESP_Glow")
@@ -642,7 +685,8 @@ local script = G2L["11"];
 	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
 	        local team = player:GetAttribute("Team")
 	        
-	        local armorInfo = https:JSONDecode(player:GetAttribute("Armor"))
+	        --local armorInfo = https:JSONDecode(player:GetAttribute("Armor"))
+	        local health = math.round(humanoid.Health)
 	        
 	        if player.Character:FindFirstChild("xxx") then
 	            local esp = player.Character:FindFirstChild("xxx")
@@ -654,9 +698,16 @@ local script = G2L["11"];
 	
 	            if module.Settings.ESP_HealthBar == true then
 	                esp.HealthBar.Visible = true
-	                esp.HealthBar.Size = UDim2.new(0.005, 0, armorInfo.Health / 165, 0)
+	                esp.HealthBar.Size = UDim2.new(0.005, 0, (health / 100) * 0.6, 0)
 	            else
 	                esp.HealthBar.Visible = false
+	            end
+	            
+	            if module.Settings.ESP_HealthText == true then
+	                esp.Left.HealthText.Visible = true
+	                esp.Left.HealthText.Text = tostring(health)
+	            else
+	                esp.Left.HealthText.Visible = false
 	            end
 	
 	            if module.Settings.ESP_Name == true then
