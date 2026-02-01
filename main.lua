@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 31 | Scripts: 3 | Modules: 1 | Tags: 0
+-- Instances: 33 | Scripts: 3 | Modules: 1 | Tags: 0
 local G2L = {};
 
 -- StarterGui.Sigmaware
@@ -135,156 +135,172 @@ G2L["e"] = Instance.new("UIGradient", G2L["d"]);
 G2L["e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(242, 138, 54)),ColorSequenceKeypoint.new(0.250, Color3.fromRGB(242, 54, 107)),ColorSequenceKeypoint.new(0.500, Color3.fromRGB(134, 54, 242)),ColorSequenceKeypoint.new(0.750, Color3.fromRGB(54, 187, 242)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(54, 242, 173))};
 
 
+-- StarterGui.Sigmaware.Menu.GrabFrame
+G2L["f"] = Instance.new("Frame", G2L["2"]);
+G2L["f"]["BorderSizePixel"] = 0;
+G2L["f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["f"]["Size"] = UDim2.new(1, 0, 0.015, 0);
+G2L["f"]["Position"] = UDim2.new(0, 0, 0, 0);
+G2L["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["f"]["Name"] = [[GrabFrame]];
+G2L["f"]["BackgroundTransparency"] = 1;
+
+
 -- StarterGui.Sigmaware.CreatingMenu
-G2L["f"] = Instance.new("LocalScript", G2L["1"]);
-G2L["f"]["Name"] = [[CreatingMenu]];
+G2L["10"] = Instance.new("LocalScript", G2L["1"]);
+G2L["10"]["Name"] = [[CreatingMenu]];
 
 
 -- StarterGui.Sigmaware.MenuHandlingModule
-G2L["10"] = Instance.new("ModuleScript", G2L["1"]);
-G2L["10"]["Name"] = [[MenuHandlingModule]];
+G2L["11"] = Instance.new("ModuleScript", G2L["1"]);
+G2L["11"]["Name"] = [[MenuHandlingModule]];
 
 
 -- StarterGui.Sigmaware.CheatsFunctions
-G2L["11"] = Instance.new("LocalScript", G2L["1"]);
-G2L["11"]["Name"] = [[CheatsFunctions]];
+G2L["12"] = Instance.new("LocalScript", G2L["1"]);
+G2L["12"]["Name"] = [[CheatsFunctions]];
 
 
 -- StarterGui.Sigmaware.DragMenuScript
-G2L["12"] = Instance.new("LocalScript", G2L["1"]);
-G2L["12"]["Name"] = [[DragMenuScript]];
+G2L["13"] = Instance.new("LocalScript", G2L["1"]);
+G2L["13"]["Name"] = [[DragMenuScript]];
 
 
 -- StarterGui.Sigmaware.xxx
-G2L["13"] = Instance.new("BillboardGui", G2L["1"]);
-G2L["13"]["ResetOnSpawn"] = false;
-G2L["13"]["LightInfluence"] = 1;
-G2L["13"]["Active"] = true;
-G2L["13"]["Size"] = UDim2.new(9, 0, 9, 0);
-G2L["13"]["Enabled"] = false;
-G2L["13"]["ClipsDescendants"] = true;
-G2L["13"]["AlwaysOnTop"] = true;
-G2L["13"]["Name"] = [[xxx]];
-G2L["13"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["14"] = Instance.new("BillboardGui", G2L["1"]);
+G2L["14"]["ResetOnSpawn"] = false;
+G2L["14"]["LightInfluence"] = 1;
+G2L["14"]["Active"] = true;
+G2L["14"]["Size"] = UDim2.new(9, 0, 9, 0);
+G2L["14"]["Enabled"] = false;
+G2L["14"]["ClipsDescendants"] = true;
+G2L["14"]["AlwaysOnTop"] = true;
+G2L["14"]["Name"] = [[xxx]];
+G2L["14"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
 -- StarterGui.Sigmaware.xxx.Box
-G2L["14"] = Instance.new("Frame", G2L["13"]);
-G2L["14"]["Visible"] = false;
-G2L["14"]["BorderSizePixel"] = 0;
-G2L["14"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["14"]["Size"] = UDim2.new(0.4, 0, 0.6, 0);
-G2L["14"]["Position"] = UDim2.new(0.3, 0, 0.25, 0);
-G2L["14"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["14"]["Name"] = [[Box]];
-G2L["14"]["BackgroundTransparency"] = 1;
+G2L["15"] = Instance.new("Frame", G2L["14"]);
+G2L["15"]["Visible"] = false;
+G2L["15"]["BorderSizePixel"] = 0;
+G2L["15"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["15"]["Size"] = UDim2.new(0.4, 0, 0.6, 0);
+G2L["15"]["Position"] = UDim2.new(0.3, 0, 0.25, 0);
+G2L["15"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["15"]["Name"] = [[Box]];
+G2L["15"]["BackgroundTransparency"] = 1;
 
 
 -- StarterGui.Sigmaware.xxx.Box.UIStroke
-G2L["15"] = Instance.new("UIStroke", G2L["14"]);
-G2L["15"]["Color"] = Color3.fromRGB(255, 255, 255);
-G2L["15"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["15"]["BorderStrokePosition"] = Enum.BorderStrokePosition.Inner;
+G2L["16"] = Instance.new("UIStroke", G2L["15"]);
+G2L["16"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["16"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["16"]["BorderStrokePosition"] = Enum.BorderStrokePosition.Inner;
 
 
 -- StarterGui.Sigmaware.xxx.name
-G2L["16"] = Instance.new("TextLabel", G2L["13"]);
-G2L["16"]["TextWrapped"] = true;
-G2L["16"]["BorderSizePixel"] = 0;
-G2L["16"]["TextSize"] = 50;
-G2L["16"]["TextScaled"] = true;
-G2L["16"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["16"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["16"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["16"]["BackgroundTransparency"] = 1;
-G2L["16"]["Size"] = UDim2.new(1, 0, 0.125, 0);
-G2L["16"]["Visible"] = false;
-G2L["16"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["16"]["Text"] = [[brkapery]];
-G2L["16"]["Name"] = [[name]];
-G2L["16"]["Position"] = UDim2.new(0, 0, 0.125, 0);
+G2L["17"] = Instance.new("TextLabel", G2L["14"]);
+G2L["17"]["TextWrapped"] = true;
+G2L["17"]["BorderSizePixel"] = 0;
+G2L["17"]["TextSize"] = 50;
+G2L["17"]["TextScaled"] = true;
+G2L["17"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["17"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["17"]["BackgroundTransparency"] = 1;
+G2L["17"]["Size"] = UDim2.new(1, 0, 0.125, 0);
+G2L["17"]["Visible"] = false;
+G2L["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["17"]["Text"] = [[brkapery]];
+G2L["17"]["Name"] = [[name]];
+G2L["17"]["Position"] = UDim2.new(0, 0, 0.125, 0);
 
 
 -- StarterGui.Sigmaware.xxx.name.UIStroke
-G2L["17"] = Instance.new("UIStroke", G2L["16"]);
-G2L["17"]["Transparency"] = 0.35;
-G2L["17"]["Thickness"] = 1.5;
+G2L["18"] = Instance.new("UIStroke", G2L["17"]);
+G2L["18"]["Transparency"] = 0.35;
+G2L["18"]["Thickness"] = 1.5;
 
 
 -- StarterGui.Sigmaware.xxx.pfp
-G2L["18"] = Instance.new("ImageLabel", G2L["13"]);
-G2L["18"]["BorderSizePixel"] = 0;
-G2L["18"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["18"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
-G2L["18"]["Size"] = UDim2.new(0.125, 0, 0.125, 0);
-G2L["18"]["Visible"] = false;
-G2L["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["18"]["BackgroundTransparency"] = 1;
-G2L["18"]["Name"] = [[pfp]];
-G2L["18"]["Position"] = UDim2.new(0.435, 0, 0, 0);
+G2L["19"] = Instance.new("ImageLabel", G2L["14"]);
+G2L["19"]["BorderSizePixel"] = 0;
+G2L["19"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["19"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["19"]["Size"] = UDim2.new(0.125, 0, 0.125, 0);
+G2L["19"]["Visible"] = false;
+G2L["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["19"]["BackgroundTransparency"] = 1;
+G2L["19"]["Name"] = [[pfp]];
+G2L["19"]["Position"] = UDim2.new(0.435, 0, 0, 0);
 
 
 -- StarterGui.Sigmaware.xxx.pfp.UICorner
-G2L["19"] = Instance.new("UICorner", G2L["18"]);
-G2L["19"]["CornerRadius"] = UDim.new(1, 0);
+G2L["1a"] = Instance.new("UICorner", G2L["19"]);
+G2L["1a"]["CornerRadius"] = UDim.new(1, 0);
 
 
 -- StarterGui.Sigmaware.xxx.pfp.UIStroke
-G2L["1a"] = Instance.new("UIStroke", G2L["18"]);
-G2L["1a"]["Thickness"] = 1.5;
-G2L["1a"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["1b"] = Instance.new("UIStroke", G2L["19"]);
+G2L["1b"]["Thickness"] = 1.5;
+G2L["1b"]["Color"] = Color3.fromRGB(255, 255, 255);
 
 
 -- StarterGui.Sigmaware.xxx.HealthBar
-G2L["1b"] = Instance.new("Frame", G2L["13"]);
-G2L["1b"]["Visible"] = false;
-G2L["1b"]["BorderSizePixel"] = 0;
-G2L["1b"]["BackgroundColor3"] = Color3.fromRGB(78, 255, 0);
-G2L["1b"]["AnchorPoint"] = Vector2.new(0, 1);
-G2L["1b"]["Size"] = UDim2.new(0.005, 0, 0.6, 0);
-G2L["1b"]["Position"] = UDim2.new(0.29, 0, 0.85, 0);
-G2L["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1b"]["Name"] = [[HealthBar]];
+G2L["1c"] = Instance.new("Frame", G2L["14"]);
+G2L["1c"]["Visible"] = false;
+G2L["1c"]["BorderSizePixel"] = 0;
+G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(78, 255, 0);
+G2L["1c"]["AnchorPoint"] = Vector2.new(0, 1);
+G2L["1c"]["Size"] = UDim2.new(0.005, 0, 0.6, 0);
+G2L["1c"]["Position"] = UDim2.new(0.29, 0, 0.85, 0);
+G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1c"]["Name"] = [[HealthBar]];
+
+
+-- StarterGui.Sigmaware.xxx.HealthBar.UIStroke
+G2L["1d"] = Instance.new("UIStroke", G2L["1c"]);
+
 
 
 -- StarterGui.Sigmaware.xxx.Left
-G2L["1c"] = Instance.new("Frame", G2L["13"]);
-G2L["1c"]["BorderSizePixel"] = 0;
-G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1c"]["Size"] = UDim2.new(0.25, 0, 0.6, 0);
-G2L["1c"]["Position"] = UDim2.new(0.035, 0, 0.25, 0);
-G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1c"]["Name"] = [[Left]];
-G2L["1c"]["BackgroundTransparency"] = 1;
+G2L["1e"] = Instance.new("Frame", G2L["14"]);
+G2L["1e"]["BorderSizePixel"] = 0;
+G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1e"]["Size"] = UDim2.new(0.25, 0, 0.6, 0);
+G2L["1e"]["Position"] = UDim2.new(0.035, 0, 0.25, 0);
+G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1e"]["Name"] = [[Left]];
+G2L["1e"]["BackgroundTransparency"] = 1;
 
 
 -- StarterGui.Sigmaware.xxx.Left.UIListLayout
-G2L["1d"] = Instance.new("UIListLayout", G2L["1c"]);
-G2L["1d"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
-G2L["1d"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["1f"] = Instance.new("UIListLayout", G2L["1e"]);
+G2L["1f"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
+G2L["1f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
 
 -- StarterGui.Sigmaware.xxx.Left.HealthText
-G2L["1e"] = Instance.new("TextLabel", G2L["1c"]);
-G2L["1e"]["TextWrapped"] = true;
-G2L["1e"]["BorderSizePixel"] = 0;
-G2L["1e"]["TextSize"] = 14;
-G2L["1e"]["TextXAlignment"] = Enum.TextXAlignment.Right;
-G2L["1e"]["TextScaled"] = true;
-G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1e"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["1e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1e"]["BackgroundTransparency"] = 1;
-G2L["1e"]["Size"] = UDim2.new(0.1, 0, 0.1, 0);
-G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1e"]["Text"] = [[100 hp]];
-G2L["1e"]["Name"] = [[HealthText]];
+G2L["20"] = Instance.new("TextLabel", G2L["1e"]);
+G2L["20"]["TextWrapped"] = true;
+G2L["20"]["BorderSizePixel"] = 0;
+G2L["20"]["TextSize"] = 14;
+G2L["20"]["TextXAlignment"] = Enum.TextXAlignment.Right;
+G2L["20"]["TextScaled"] = true;
+G2L["20"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["20"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["20"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["20"]["BackgroundTransparency"] = 1;
+G2L["20"]["Size"] = UDim2.new(0.1, 0, 0.1, 0);
+G2L["20"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["20"]["Text"] = [[100 hp]];
+G2L["20"]["Name"] = [[HealthText]];
 
 
 -- StarterGui.Sigmaware.xxx.Left.HealthText.UIStroke
-G2L["1f"] = Instance.new("UIStroke", G2L["1e"]);
-G2L["1f"]["Transparency"] = 0.35;
-G2L["1f"]["Thickness"] = 1.5;
+G2L["21"] = Instance.new("UIStroke", G2L["20"]);
+G2L["21"]["Transparency"] = 0.35;
+G2L["21"]["Thickness"] = 1.5;
 
 
 -- Require G2L wrapper
@@ -302,23 +318,33 @@ local function require(Module:ModuleScript)
     return G2L_REQUIRE(Module);
 end
 
-G2L_MODULES[G2L["10"]] = {
+G2L_MODULES[G2L["11"]] = {
 Closure = function()
-    local script = G2L["10"];local module = {}
+    local script = G2L["11"];local module = {}
 
 module.Settings = {
+    --AIMBOT_Test = false,
+    --TEST_Slider = 5,
     ESP_Enabled = false,
     ESP_Box = false,
     ESP_HealthBar = false,
     ESP_HealthText = false,
     ESP_Name = false,
     ESP_Pfp = false,
+    ESP_Skeleton = false,
     ESP_Glow = false,
     MISC_Watermark = false,
     WATERMARK_Player = false,
     WATERMARK_Fps = false,
     WATERMARK_Ping = false
 }
+
+local TextFont = Enum.Font.RobotoMono
+
+local Mouse = game:GetService("Players").LocalPlayer:GetMouse()
+local uis = game:GetService("UserInputService")
+local rs = game:GetService("RunService")
+local https = game:GetService("HttpService")
 
 local Menu = script.Parent.Menu
 local ButtonsTab = Menu.ButtonsTab.Buttons
@@ -353,7 +379,7 @@ local function CreatingTab(tabName)
     frame.BackgroundTransparency = 1
     frame.ScrollBarImageColor3 = Color3.new(0.423529, 0.423529, 0.423529)
     frame.ScrollBarThickness = 6
-    frame.Size = UDim2.new(1, 0, 1, 0)
+    frame.Size = UDim2.fromScale(1, 1)
     
     local uiPadding = Instance.new("UIPadding", frame)
     uiPadding.PaddingLeft = UDim.new(.02, 0)
@@ -363,12 +389,13 @@ local function CreatingTab(tabName)
     
     local uiList = Instance.new("UIListLayout", frame)
     uiList.Padding = UDim.new(0.01, 0)
+    uiList.SortOrder = Enum.SortOrder.LayoutOrder
     
     ChangeTab(tostring(tabName))
 end
 
--- Creating checkbox
-function module.CreateCheckBox(tabName, name, setting)
+-- Creating CheckBox
+function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSetting, maxNumSlider)
     local frame = nil
     
     -- finding frame
@@ -382,9 +409,10 @@ function module.CreateCheckBox(tabName, name, setting)
     
     local IDcheckmarked = "rbxassetid://9754130783"
     
+    -- creating checkmark Button
     local button = Instance.new("ImageButton", frame)
     button.BackgroundColor3 = Color3.new(0.235294, 0.235294, 0.235294)
-    button.Size = UDim2.new(0.06, 0, 0.038, 0)
+    button.Size = UDim2.fromScale(0.06, 0.038)
     button.Image = ""
     button.Modal = true
     
@@ -393,10 +421,10 @@ function module.CreateCheckBox(tabName, name, setting)
     
     local text = Instance.new("TextLabel", button)
     text.Text = tostring(name)
-    text.Position = UDim2.new(1.215, 0, -0.007, 0)
-    text.Size = UDim2.new(2.543, 0, 1, 0)
+    text.Position = UDim2.fromScale(1.215 -0.007)
+    text.Size = UDim2.fromScale(2.543, 1)
     text.BackgroundTransparency = 1
-    text.Font = Enum.Font.Arial
+    text.Font = TextFont
     text.TextScaled = false
     text.TextSize = 20
     text.TextXAlignment = Enum.TextXAlignment.Left
@@ -411,6 +439,194 @@ function module.CreateCheckBox(tabName, name, setting)
             button.Image = ""
         end
     end)
+    
+    -- creating Slider
+    
+    if sliderBoolean then
+        local Slider = Instance.new("Frame", button)
+        Slider.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196)
+        Slider.Position = UDim2.fromScale(4, -0.007)
+        Slider.Size = UDim2.fromScale(8, 1)
+        Slider.Visible = false
+        
+        local textSlider = Instance.new("TextLabel", Slider)
+        textSlider.Size = UDim2.fromScale(1, 1)
+        textSlider.BackgroundTransparency = 1
+        textSlider.Font = TextFont
+        textSlider.TextScaled = true
+        textSlider.TextColor3 = Color3.new(1, 1, 1)
+        textSlider.ZIndex = 2
+        textSlider.Text = tostring(module.Settings[tostring(sliderSetting)])
+        
+        local UICornerSlider = Instance.new("UICorner", Slider)
+        UICornerSlider.CornerRadius = UDim.new(0, 8)
+        
+        local FillSlider = Instance.new("Frame", Slider)
+        FillSlider.BackgroundColor3 = Color3.new(1, 0.560784, 0.411765)
+        FillSlider.Position = UDim2.fromScale(0.021, 0.13)
+        FillSlider.Size = UDim2.fromScale(0.955, 0.683)
+        local rawSlider = math.clamp(module.Settings[tostring(sliderSetting)] / maxNumSlider, 0, 1)
+        local finalslider = rawSlider * 0.955
+        FillSlider.Size = UDim2.fromScale(finalslider, 0.683)
+        
+        local UICornerFillSlider = UICornerSlider:Clone()
+        UICornerFillSlider.Parent = FillSlider
+        UICornerFillSlider.CornerRadius = UDim.new(0, 5)
+        
+        local buttonSlider = Instance.new("TextButton", Slider)
+        buttonSlider.Size = UDim2.fromScale(1, 1)
+        buttonSlider.BackgroundTransparency = 1
+        buttonSlider.Text = ""
+        
+        if not maxNumSlider then
+            maxNumSlider = 100
+        end
+        
+        local sliderActive = false
+        
+        buttonSlider.MouseButton1Down:Connect(function()
+            sliderActive = true
+            task.spawn(function()
+                while sliderActive do
+                    local mouseLocation = uis:GetMouseLocation()
+                    local relativeX = mouseLocation.X - Slider.AbsolutePosition.X
+                    
+                    local rawPercentage = math.clamp(relativeX / Slider.AbsoluteSize.X, 0, 1)
+                    
+                    local finalWidth = rawPercentage * 0.955
+                    
+                    FillSlider.Size = UDim2.fromScale(finalWidth, 0.683)
+                    
+                    textSlider.Text = math.floor(rawPercentage * maxNumSlider)
+                    
+                    sliderSetting = math.floor(rawPercentage * maxNumSlider)
+
+                    task.wait()
+                end
+            end)
+        end)
+        
+        uis.InputEnded:Connect(function(key)
+            if key.UserInputType == Enum.UserInputType.MouseButton1 or key.UserInputType == Enum.UserInputType.Touch then
+                sliderActive = false
+            end
+        end)
+        
+        button.MouseButton1Click:Connect(function()
+            Slider.Visible = not module.Settings[tostring(setting)]
+        end)
+    end
+end
+
+-- Creating Multi CheckBox
+function module.CreateMultiCheckBox(tabName, name, settings)
+    local frame = nil
+
+    -- finding frame
+    for _, v in pairs(Tabs:GetChildren()) do
+        if v:IsA("ScrollingFrame") then
+            if v.Name == tostring(tabName) then
+                frame = v
+            end
+        end
+    end
+    
+    local IDcheckmarked = "rbxassetid://9754130783"
+    
+    local button1 = Instance.new("TextButton", frame)
+    button1.BackgroundColor3 = Color3.new(0.235294, 0.235294, 0.235294)
+    button1.Size = UDim2.fromScale(0.15, 0.038)
+    button1.Modal = true
+    button1.Font = TextFont
+    button1.TextScaled = true
+    button1.TextColor3 = Color3.new(1 ,1 ,1)
+    button1.Text = "..."
+    button1.ZIndex = 99
+    
+    local uiCorner1 = Instance.new("UICorner", button1)
+    uiCorner1.CornerRadius = UDim.new(0, 8)
+    
+    local text1 = Instance.new("TextLabel", button1)
+    text1.Size = UDim2.fromScale(1.1, 1)
+    text1.Position = UDim2.fromScale(1.1, -0.007)
+    text1.BackgroundTransparency = 1
+    text1.Font = TextFont
+    text1.Text = name
+    text1.TextSize = 20
+    text1.TextXAlignment = Enum.TextXAlignment.Left
+    text1.TextColor3 = Color3.new(1, 1, 1)
+    
+    -- Creating frame for checkmarks
+    
+    local frame1 = Instance.new("Frame", button1)
+    frame1.Size = UDim2.fromScale(3, 5)
+    frame1.Visible = false
+    frame1.Position = UDim2.fromScale(0, 1.335)
+    frame1.BackgroundColor3 = Color3.new(0.196078, 0.196078, 0.196078)
+    frame1.ZIndex = 50
+    
+    local uiStroke1 = Instance.new("UIStroke", frame1)
+    uiStroke1.Thickness = 1.75
+    uiStroke1.Color = Color3.new(0.219608, 0.219608, 0.219608)
+    uiStroke1.ApplyStrokeMode = Enum.ApplyStrokeMode.Border
+    
+    -- Creating scrolling frame
+    
+    local scrollFrame1 = Instance.new("ScrollingFrame", frame1)
+    scrollFrame1.BackgroundTransparency = 1
+    scrollFrame1.ScrollBarImageColor3 = Color3.new(0.423529, 0.423529, 0.423529)
+    scrollFrame1.ScrollBarThickness = 6
+    scrollFrame1.Size = UDim2.fromScale(1, 1)
+
+    local uiPadding1 = Instance.new("UIPadding", scrollFrame1)
+    uiPadding1.PaddingLeft = UDim.new(.02, 0)
+    uiPadding1.PaddingRight = UDim.new(.02, 0)
+    uiPadding1.PaddingTop = UDim.new(.01, 0)
+    uiPadding1.PaddingBottom = UDim.new(.01, 0)
+
+    local uiList1 = Instance.new("UIListLayout", scrollFrame1)
+    uiList1.SortOrder = Enum.SortOrder.LayoutOrder
+    uiList1.Padding = UDim.new(0.01, 0)
+    
+    button1.MouseButton1Click:Connect(function()
+        frame1.Visible = not frame1.Visible
+    end)
+    
+    -- Creating checkmark buttons
+    for i, v in pairs(settings) do
+        local displayName = v[1]
+        local settingKey = v[2]
+        
+        local button = Instance.new("ImageButton", scrollFrame1)
+        button.BackgroundColor3 = Color3.new(0.235294, 0.235294, 0.235294)
+        button.Size = UDim2.fromScale(0.145, 0.1)
+        button.Image = ""
+        button.Modal = true
+
+        local uiCorner = Instance.new("UICorner", button)
+        uiCorner.CornerRadius = UDim.new(0, 8)
+
+        local text = Instance.new("TextLabel", button)
+        text.Text = tostring(displayName)
+        text.Position = UDim2.fromScale(1.215 -0.007)
+        text.Size = UDim2.fromScale(2.543, 1)
+        text.BackgroundTransparency = 1
+        text.Font = TextFont
+        text.TextScaled = false
+        text.TextSize = 20
+        text.TextXAlignment = Enum.TextXAlignment.Left
+        text.TextColor3 = Color3.new(1, 1, 1)
+
+        button.MouseButton1Click:Connect(function()
+            module.Settings[settingKey] = not module.Settings[settingKey]
+
+            if module.Settings[settingKey] == true then
+                button.Image = IDcheckmarked
+            else
+                button.Image = ""
+            end
+        end)
+    end
 end
 
 -- Creating Tab Button
@@ -425,13 +641,13 @@ function module.CreateButtonTab(name, tabName)
     end
     
     local button = Instance.new("TextButton", ButtonsTab)
-    button.Size = UDim2.new(1, 0, 0.138, 0)
+    button.Size = UDim2.fromScale(1, 0.138)
     button.BackgroundColor3 = Color3.new(0.235294, 0.235294, 0.235294)
     button.Name = tostring(name .. "Button")
     button.Text = tostring(name)
     button.TextScaled = true
     button.TextColor3 = Color3.new(1, 1, 1)
-    button.Font = Enum.Font.SourceSans
+    button.Font = TextFont
     button.Modal = true
 
     local uiCorner = Instance.new("UICorner", button)
@@ -453,8 +669,8 @@ return module
 end;
 };
 -- StarterGui.Sigmaware.CreatingMenu
-local function C_f()
-local script = G2L["f"];
+local function C_10()
+local script = G2L["10"];
 	---- Main Menu
 	local MenuHandling = require(script.Parent.MenuHandlingModule)
 	local uis = game:GetService("UserInputService")
@@ -462,17 +678,21 @@ local script = G2L["f"];
 	
 	MenuHandling.CreateButtonTab("Aimbot", "AimbotTab")
 	-- Aimbot Tab
-	
+	--MenuHandling.CreateCheckBox("AimbotTab", "Test", "AIMBOT_Test", true, "TEST_Slider", 20)
 	
 	
 	MenuHandling.CreateButtonTab("Visuals", "VisualsTab")
 	-- Visuals Tab
 	MenuHandling.CreateCheckBox("VisualsTab", "Enabled", "ESP_Enabled")
-	MenuHandling.CreateCheckBox("VisualsTab", "Box", "ESP_Box")
-	MenuHandling.CreateCheckBox("VisualsTab", "Health Bar", "ESP_HealthBar")
-	MenuHandling.CreateCheckBox("VisualsTab", "Health Text", "ESP_HealthText")
-	MenuHandling.CreateCheckBox("VisualsTab", "Name", "ESP_Name")
-	MenuHandling.CreateCheckBox("VisualsTab", "Pfp", "ESP_Pfp")
+	MenuHandling.CreateMultiCheckBox("VisualsTab", "Esp Options", {
+	    {"Box", "ESP_Box"},
+	    {"Health Bar", "ESP_HealthBar"},
+	    {"Health Text", "ESP_HealthText"},
+	    {"Name", "ESP_Name"},
+	    {"Pfp", "ESP_Pfp"},
+	    {"Health Bar", "ESP_HealthBar"},
+	    {"Skeleton", "ESP_Skeleton"}
+	})
 	MenuHandling.CreateCheckBox("VisualsTab", "Glow", "ESP_Glow")
 	
 	
@@ -480,9 +700,14 @@ local script = G2L["f"];
 	MenuHandling.CreateButtonTab("Misc", "MiscTab")
 	-- Misc Tab
 	MenuHandling.CreateCheckBox("MiscTab", "Watermark", "MISC_Watermark")
-	MenuHandling.CreateCheckBox("MiscTab", "W - Player", "WATERMARK_Player")
-	MenuHandling.CreateCheckBox("MiscTab", "W - Fps", "WATERMARK_Fps")
-	MenuHandling.CreateCheckBox("MiscTab", "W - Ping", "WATERMARK_Ping")
+	MenuHandling.CreateMultiCheckBox("MiscTab", "Watermark Options", {
+	    {"Player", "WATERMARK_Player"},
+	    {"FPS", "WATERMARK_Fps"},
+	    {"Ping", "WATERMARK_Ping"}
+	})
+	--MenuHandling.CreateCheckBox("MiscTab", "W - Player", "WATERMARK_Player")
+	--MenuHandling.CreateCheckBox("MiscTab", "W - Fps", "WATERMARK_Fps")
+	--MenuHandling.CreateCheckBox("MiscTab", "W - Ping", "WATERMARK_Ping")
 	
 	----- Additionals (cool stuff)
 	
@@ -617,16 +842,22 @@ local script = G2L["f"];
 	    end
 	end)
 end;
-task.spawn(C_f);
+task.spawn(C_10);
 -- StarterGui.Sigmaware.CheatsFunctions
-local function C_11()
-local script = G2L["11"];
+local function C_12()
+local script = G2L["12"];
 	local module = require(script.Parent.MenuHandlingModule)
 	
+	-- Player variables
+	local camera = workspace.CurrentCamera
+	local localPlayer = game.Players.LocalPlayer
+	local Mouse = localPlayer:GetMouse()
+	
+	-- Services
+	local players = game:GetService("Players")
 	local uis = game:GetService("UserInputService")
 	local rs = game:GetService("RunService")
 	local https = game:GetService("HttpService")
-	local localPlayer = game.Players.LocalPlayer
 	
 	-- TEST
 	uis.InputBegan:Connect(function(key)
@@ -650,6 +881,10 @@ local script = G2L["11"];
 	-- ESP GLOW
 	local function ESP_GLOW(player : Player)
 	    if player ~= localPlayer and player.Character then
+	        if not player or not player.Character then
+	            return
+	        end
+	        
 	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
 	        local team = player:GetAttribute("Team")
 	        
@@ -682,6 +917,10 @@ local script = G2L["11"];
 	
 	local function ESP(player : Player)
 	    if player ~= localPlayer and player.Character then
+	        if not player or not player.Character then
+	            return
+	        end
+	        
 	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
 	        local team = player:GetAttribute("Team")
 	        
@@ -758,18 +997,95 @@ local script = G2L["11"];
 	    end
 	end)
 	
-	-- Check for player attributes
+	-- Skeleton ESP
+	
+	local SkeletonLines = {}
+	
+	local BonePairs = {
+	    {"Head", "UpperTorso"},
+	    {"UpperTorso", "LowerTorso"},
+	    {"UpperTorso", "LeftUpperArm"}, {"LeftUpperArm", "LeftLowerArm"}, {"LeftLowerArm", "LeftHand"},
+	    {"UpperTorso", "RightUpperArm"}, {"RightUpperArm", "RightLowerArm"}, {"RightLowerArm", "RightHand"},
+	    {"LowerTorso", "LeftUpperLeg"}, {"LeftUpperLeg", "LeftLowerLeg"}, {"LeftLowerLeg", "LeftFoot"},
+	    {"LowerTorso", "RightUpperLeg"}, {"RightUpperLeg", "RightLowerLeg"}, {"RightLowerLeg", "RightFoot"}
+	}
+	
+	local function createSkeleton(player)
+	    if SkeletonLines[player] then return end
+	
+	    local lines = {}
+	    for i = 1, #BonePairs do
+	        local line = Drawing.new("Line")
+	        line.Visible = false
+	        line.Color = Color3.new(1, 1, 1)
+	        line.Thickness = 1.5
+	        line.Transparency = 1
+	        lines[i] = line
+	    end
+	    SkeletonLines[player] = lines
+	end
+	
+	rs.RenderStepped:Connect(function()
+	    for _, player in pairs(players:GetPlayers()) do
+	        local lines = SkeletonLines[player]
+	
+	        if not player.Parent then
+	            if lines then
+	                for _, l in pairs(lines) do l:Remove() end
+	                SkeletonLines[player] = nil
+	            end
+	            continue
+	        end
+	
+	        if not lines then createSkeleton(player) continue end
+	
+	        local char = player.Character
+	
+	        local isVisible = module.Settings and module.Settings.ESP_Enabled and module.Settings.ESP_Skeleton
+	        if char and isVisible and player ~= localPlayer then
+	            local humanoid = char:FindFirstChildOfClass("Humanoid")
+	
+	            if humanoid and humanoid.Health > 0 and player:GetAttribute("Team") ~= localPlayer:GetAttribute("Team") then
+	                for i, pair in pairs(BonePairs) do
+	                    local part1 = char:FindFirstChild(pair[1])
+	                    local part2 = char:FindFirstChild(pair[2])
+	                    local line = lines[i]
+	
+	                    if part1 and part2 then
+	                        local pos1, onScreen1 = camera:WorldToViewportPoint(part1.Position)
+	                        local pos2, onScreen2 = camera:WorldToViewportPoint(part2.Position)
+	
+	                        if onScreen1 and onScreen2 then
+	                            line.From = Vector2.new(pos1.X, pos1.Y)
+	                            line.To = Vector2.new(pos2.X, pos2.Y)
+	                            line.Visible = true
+	                        else
+	                            line.Visible = false
+	                        end
+	                    else
+	                        line.Visible = false
+	                    end
+	                end
+	            else
+	                for _, l in pairs(lines) do l.Visible = false end
+	            end
+	        else
+	            for _, l in pairs(lines) do l.Visible = false end
+	        end
+	    end
+	end)
 end;
-task.spawn(C_11);
+task.spawn(C_12);
 -- StarterGui.Sigmaware.DragMenuScript
-local function C_12()
-local script = G2L["12"];
+local function C_13()
+local script = G2L["13"];
 	--// Services
 	local Players = game:GetService('Players')
 	local UIS = game:GetService("UserInputService")
 	
 	--// Variables
 	local UI = script.Parent.Menu
+	local GrabFrame = UI.GrabFrame
 	
 	local Player = Players.LocalPlayer
 	local Mouse = Player:GetMouse()
@@ -792,11 +1108,11 @@ local script = G2L["12"];
 	
 	--// Connections
 	
-	UI.MouseEnter:Connect(function()
+	GrabFrame.MouseEnter:Connect(function()
 	    Hovered = true
 	end)
 	
-	UI.MouseLeave:Connect(function()
+	GrabFrame.MouseLeave:Connect(function()
 	    Hovered = false
 	end)
 	
@@ -818,6 +1134,6 @@ local script = G2L["12"];
 	    end
 	end)
 end;
-task.spawn(C_12);
+task.spawn(C_13);
 
 return G2L["1"], require;
