@@ -7,14 +7,13 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 44 | Scripts: 8 | Modules: 2 | Tags: 0
+-- Instances: 60 | Scripts: 8 | Modules: 2 | Tags: 0
 local G2L = {};
 
 -- StarterGui.Sigmaware
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
 G2L["1"]["IgnoreGuiInset"] = true;
 G2L["1"]["DisplayOrder"] = 9999;
-G2L["1"]["Enabled"] = false;
 G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
 G2L["1"]["Name"] = [[Sigmaware]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
@@ -69,6 +68,7 @@ G2L["6"]["BackgroundTransparency"] = 1;
 
 -- StarterGui.Sigmaware.Menu.ButtonsTab.Buttons.UIListLayout
 G2L["7"] = Instance.new("UIListLayout", G2L["6"]);
+G2L["7"]["Wraps"] = true;
 G2L["7"]["Padding"] = UDim.new(0.025, 0);
 G2L["7"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
@@ -99,282 +99,431 @@ G2L["a"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 G2L["a"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
 
 
--- StarterGui.Sigmaware.Menu.TitleMenu
-G2L["b"] = Instance.new("TextLabel", G2L["2"]);
-G2L["b"]["TextWrapped"] = true;
-G2L["b"]["BorderSizePixel"] = 0;
-G2L["b"]["TextSize"] = 31;
-G2L["b"]["TextScaled"] = true;
-G2L["b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["b"]["FontFace"] = Font.new([[rbxasset://fonts/families/Jura.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
-G2L["b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab
+G2L["b"] = Instance.new("ScrollingFrame", G2L["9"]);
+G2L["b"]["Visible"] = false;
+G2L["b"]["Name"] = [[ConfigTab]];
+G2L["b"]["Size"] = UDim2.new(1, 0, 1, 0);
+G2L["b"]["ScrollBarImageColor3"] = Color3.fromRGB(108, 108, 108);
+G2L["b"]["ScrollBarThickness"] = 6;
 G2L["b"]["BackgroundTransparency"] = 1;
-G2L["b"]["Size"] = UDim2.new(0.29491, 0, 0.0514, 0);
-G2L["b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["b"]["Text"] = [[Sigmaware V2]];
-G2L["b"]["Name"] = [[TitleMenu]];
-G2L["b"]["Position"] = UDim2.new(0.443, 0, 0.938, 0);
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.UIPadding
+G2L["c"] = Instance.new("UIPadding", G2L["b"]);
+G2L["c"]["PaddingTop"] = UDim.new(0.01, 0);
+G2L["c"]["PaddingRight"] = UDim.new(0.02, 0);
+G2L["c"]["PaddingLeft"] = UDim.new(0.02, 0);
+G2L["c"]["PaddingBottom"] = UDim.new(0.01, 0);
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.UIListLayout
+G2L["d"] = Instance.new("UIListLayout", G2L["b"]);
+G2L["d"]["Padding"] = UDim.new(0.01, 0);
+G2L["d"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.ConfigName
+G2L["e"] = Instance.new("TextBox", G2L["b"]);
+G2L["e"]["CursorPosition"] = -1;
+G2L["e"]["Name"] = [[ConfigName]];
+G2L["e"]["BorderSizePixel"] = 0;
+G2L["e"]["TextWrapped"] = true;
+G2L["e"]["TextSize"] = 14;
+G2L["e"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["e"]["TextScaled"] = true;
+G2L["e"]["BackgroundColor3"] = Color3.fromRGB(60, 60, 60);
+G2L["e"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["e"]["ClearTextOnFocus"] = false;
+G2L["e"]["PlaceholderText"] = [[Default]];
+G2L["e"]["Size"] = UDim2.new(0.5, 0, 0.035, 0);
+G2L["e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["e"]["Text"] = [[]];
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.ConfigName.UICorner
+G2L["f"] = Instance.new("UICorner", G2L["e"]);
+
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box
+G2L["10"] = Instance.new("Frame", G2L["b"]);
+G2L["10"]["BorderSizePixel"] = 0;
+G2L["10"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["10"]["Size"] = UDim2.new(0.5, 0, 0.035, 0);
+G2L["10"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["10"]["Name"] = [[Box]];
+G2L["10"]["LayoutOrder"] = 1;
+G2L["10"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box.SaveButton
+G2L["11"] = Instance.new("TextButton", G2L["10"]);
+G2L["11"]["TextWrapped"] = true;
+G2L["11"]["BorderSizePixel"] = 0;
+G2L["11"]["Modal"] = true;
+G2L["11"]["TextSize"] = 14;
+G2L["11"]["TextScaled"] = true;
+G2L["11"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["11"]["BackgroundColor3"] = Color3.fromRGB(60, 60, 60);
+G2L["11"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["11"]["Size"] = UDim2.new(0.5, 0, 1, 0);
+G2L["11"]["LayoutOrder"] = 2;
+G2L["11"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["11"]["Text"] = [[Save]];
+G2L["11"]["Name"] = [[SaveButton]];
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box.SaveButton.UICorner
+G2L["12"] = Instance.new("UICorner", G2L["11"]);
+
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box.SaveButton.UIPadding
+G2L["13"] = Instance.new("UIPadding", G2L["11"]);
+G2L["13"]["PaddingRight"] = UDim.new(0.1, 0);
+G2L["13"]["PaddingLeft"] = UDim.new(0.1, 0);
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box.UIListLayout
+G2L["14"] = Instance.new("UIListLayout", G2L["10"]);
+G2L["14"]["Wraps"] = true;
+G2L["14"]["Padding"] = UDim.new(0.01, 0);
+G2L["14"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box.LoadButton
+G2L["15"] = Instance.new("TextButton", G2L["10"]);
+G2L["15"]["TextWrapped"] = true;
+G2L["15"]["BorderSizePixel"] = 0;
+G2L["15"]["Modal"] = true;
+G2L["15"]["TextSize"] = 14;
+G2L["15"]["TextScaled"] = true;
+G2L["15"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["15"]["BackgroundColor3"] = Color3.fromRGB(60, 60, 60);
+G2L["15"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["15"]["Size"] = UDim2.new(0.5, 0, 1, 0);
+G2L["15"]["LayoutOrder"] = 2;
+G2L["15"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["15"]["Text"] = [[Load]];
+G2L["15"]["Name"] = [[LoadButton]];
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box.LoadButton.UICorner
+G2L["16"] = Instance.new("UICorner", G2L["15"]);
+
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Box.LoadButton.UIPadding
+G2L["17"] = Instance.new("UIPadding", G2L["15"]);
+G2L["17"]["PaddingRight"] = UDim.new(0.1, 0);
+G2L["17"]["PaddingLeft"] = UDim.new(0.1, 0);
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Configs
+G2L["18"] = Instance.new("ScrollingFrame", G2L["b"]);
+G2L["18"]["Active"] = true;
+G2L["18"]["BorderSizePixel"] = 0;
+G2L["18"]["CanvasSize"] = UDim2.new(0, 0, 0.5, 0);
+G2L["18"]["Name"] = [[Configs]];
+G2L["18"]["BackgroundColor3"] = Color3.fromRGB(60, 60, 60);
+G2L["18"]["Size"] = UDim2.new(0.5, 0, 0.2, 0);
+G2L["18"]["ScrollBarImageColor3"] = Color3.fromRGB(108, 108, 108);
+G2L["18"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["18"]["LayoutOrder"] = 2;
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Configs.UIStroke
+G2L["19"] = Instance.new("UIStroke", G2L["18"]);
+G2L["19"]["Thickness"] = 1.75;
+G2L["19"]["Color"] = Color3.fromRGB(57, 57, 57);
+G2L["19"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["19"]["LineJoinMode"] = Enum.LineJoinMode.Miter;
+
+
+-- StarterGui.Sigmaware.Menu.Tabs.ConfigTab.Configs.UIListLayout
+G2L["1a"] = Instance.new("UIListLayout", G2L["18"]);
+G2L["1a"]["Wraps"] = true;
+G2L["1a"]["Padding"] = UDim.new(0.01, 0);
+G2L["1a"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.Sigmaware.Menu.TitleMenu
+G2L["1b"] = Instance.new("TextLabel", G2L["2"]);
+G2L["1b"]["TextWrapped"] = true;
+G2L["1b"]["BorderSizePixel"] = 0;
+G2L["1b"]["TextSize"] = 31;
+G2L["1b"]["TextScaled"] = true;
+G2L["1b"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1b"]["FontFace"] = Font.new([[rbxasset://fonts/families/Jura.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["1b"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1b"]["BackgroundTransparency"] = 1;
+G2L["1b"]["Size"] = UDim2.new(0.29491, 0, 0.0514, 0);
+G2L["1b"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1b"]["Text"] = [[Sigmaware V2]];
+G2L["1b"]["Name"] = [[TitleMenu]];
+G2L["1b"]["Position"] = UDim2.new(0.443, 0, 0.938, 0);
 
 
 -- StarterGui.Sigmaware.Menu.TitleMenu.UIGradient
-G2L["c"] = Instance.new("UIGradient", G2L["b"]);
-G2L["c"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(242, 138, 54)),ColorSequenceKeypoint.new(0.250, Color3.fromRGB(242, 54, 107)),ColorSequenceKeypoint.new(0.500, Color3.fromRGB(134, 54, 242)),ColorSequenceKeypoint.new(0.750, Color3.fromRGB(54, 187, 242)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(54, 242, 173))};
+G2L["1c"] = Instance.new("UIGradient", G2L["1b"]);
+G2L["1c"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(242, 138, 54)),ColorSequenceKeypoint.new(0.250, Color3.fromRGB(242, 54, 107)),ColorSequenceKeypoint.new(0.500, Color3.fromRGB(134, 54, 242)),ColorSequenceKeypoint.new(0.750, Color3.fromRGB(54, 187, 242)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(54, 242, 173))};
 
 
 -- StarterGui.Sigmaware.Menu.RainbowLine
-G2L["d"] = Instance.new("Frame", G2L["2"]);
-G2L["d"]["BorderSizePixel"] = 0;
-G2L["d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["d"]["Size"] = UDim2.new(1, 0, 0.005, 0);
-G2L["d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["d"]["Name"] = [[RainbowLine]];
+G2L["1d"] = Instance.new("Frame", G2L["2"]);
+G2L["1d"]["BorderSizePixel"] = 0;
+G2L["1d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1d"]["Size"] = UDim2.new(1, 0, 0.005, 0);
+G2L["1d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1d"]["Name"] = [[RainbowLine]];
 
 
 -- StarterGui.Sigmaware.Menu.RainbowLine.UIGradient
-G2L["e"] = Instance.new("UIGradient", G2L["d"]);
-G2L["e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(242, 138, 54)),ColorSequenceKeypoint.new(0.250, Color3.fromRGB(242, 54, 107)),ColorSequenceKeypoint.new(0.500, Color3.fromRGB(134, 54, 242)),ColorSequenceKeypoint.new(0.750, Color3.fromRGB(54, 187, 242)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(54, 242, 173))};
+G2L["1e"] = Instance.new("UIGradient", G2L["1d"]);
+G2L["1e"]["Color"] = ColorSequence.new{ColorSequenceKeypoint.new(0.000, Color3.fromRGB(242, 138, 54)),ColorSequenceKeypoint.new(0.250, Color3.fromRGB(242, 54, 107)),ColorSequenceKeypoint.new(0.500, Color3.fromRGB(134, 54, 242)),ColorSequenceKeypoint.new(0.750, Color3.fromRGB(54, 187, 242)),ColorSequenceKeypoint.new(1.000, Color3.fromRGB(54, 242, 173))};
 
 
 -- StarterGui.Sigmaware.Menu.GrabFrame
-G2L["f"] = Instance.new("Frame", G2L["2"]);
-G2L["f"]["BorderSizePixel"] = 0;
-G2L["f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["f"]["Size"] = UDim2.new(1, 0, 0.015, 0);
-G2L["f"]["Position"] = UDim2.new(0, 0, 0, 0);
-G2L["f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["f"]["Name"] = [[GrabFrame]];
-G2L["f"]["BackgroundTransparency"] = 1;
+G2L["1f"] = Instance.new("Frame", G2L["2"]);
+G2L["1f"]["BorderSizePixel"] = 0;
+G2L["1f"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["1f"]["Size"] = UDim2.new(1, 0, 0.015, 0);
+G2L["1f"]["Position"] = UDim2.new(0, 0, 0, 0);
+G2L["1f"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["1f"]["Name"] = [[GrabFrame]];
+G2L["1f"]["BackgroundTransparency"] = 1;
 
 
 -- StarterGui.Sigmaware.CreatingMenu
-G2L["10"] = Instance.new("LocalScript", G2L["1"]);
-G2L["10"]["Name"] = [[CreatingMenu]];
+G2L["20"] = Instance.new("LocalScript", G2L["1"]);
+G2L["20"]["Name"] = [[CreatingMenu]];
 
 
 -- StarterGui.Sigmaware.MenuHandlingModule
-G2L["11"] = Instance.new("ModuleScript", G2L["1"]);
-G2L["11"]["Name"] = [[MenuHandlingModule]];
+G2L["21"] = Instance.new("ModuleScript", G2L["1"]);
+G2L["21"]["Name"] = [[MenuHandlingModule]];
 
 
 -- StarterGui.Sigmaware.CheatsFunctions
-G2L["12"] = Instance.new("LocalScript", G2L["1"]);
-G2L["12"]["Name"] = [[CheatsFunctions]];
+G2L["22"] = Instance.new("LocalScript", G2L["1"]);
+G2L["22"]["Name"] = [[CheatsFunctions]];
 
 
 -- StarterGui.Sigmaware.DragMenuScript
-G2L["13"] = Instance.new("LocalScript", G2L["1"]);
-G2L["13"]["Name"] = [[DragMenuScript]];
+G2L["23"] = Instance.new("LocalScript", G2L["1"]);
+G2L["23"]["Name"] = [[DragMenuScript]];
 
 
 -- StarterGui.Sigmaware.xxx
-G2L["14"] = Instance.new("BillboardGui", G2L["1"]);
-G2L["14"]["ResetOnSpawn"] = false;
-G2L["14"]["LightInfluence"] = 1;
-G2L["14"]["Active"] = true;
-G2L["14"]["Size"] = UDim2.new(9, 0, 9, 0);
-G2L["14"]["Enabled"] = false;
-G2L["14"]["ClipsDescendants"] = true;
-G2L["14"]["AlwaysOnTop"] = true;
-G2L["14"]["Name"] = [[xxx]];
-G2L["14"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
+G2L["24"] = Instance.new("BillboardGui", G2L["1"]);
+G2L["24"]["ResetOnSpawn"] = false;
+G2L["24"]["LightInfluence"] = 1;
+G2L["24"]["Active"] = true;
+G2L["24"]["Size"] = UDim2.new(9, 0, 9, 0);
+G2L["24"]["Enabled"] = false;
+G2L["24"]["ClipsDescendants"] = true;
+G2L["24"]["AlwaysOnTop"] = true;
+G2L["24"]["Name"] = [[xxx]];
+G2L["24"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 
 
 -- StarterGui.Sigmaware.xxx.Box
-G2L["15"] = Instance.new("Frame", G2L["14"]);
-G2L["15"]["Visible"] = false;
-G2L["15"]["BorderSizePixel"] = 0;
-G2L["15"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["15"]["Size"] = UDim2.new(0.4, 0, 0.6, 0);
-G2L["15"]["Position"] = UDim2.new(0.3, 0, 0.25, 0);
-G2L["15"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["15"]["Name"] = [[Box]];
-G2L["15"]["BackgroundTransparency"] = 1;
+G2L["25"] = Instance.new("Frame", G2L["24"]);
+G2L["25"]["Visible"] = false;
+G2L["25"]["BorderSizePixel"] = 0;
+G2L["25"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["25"]["Size"] = UDim2.new(0.4, 0, 0.6, 0);
+G2L["25"]["Position"] = UDim2.new(0.3, 0, 0.25, 0);
+G2L["25"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["25"]["Name"] = [[Box]];
+G2L["25"]["BackgroundTransparency"] = 1;
 
 
 -- StarterGui.Sigmaware.xxx.Box.UIStroke
-G2L["16"] = Instance.new("UIStroke", G2L["15"]);
-G2L["16"]["Color"] = Color3.fromRGB(255, 255, 255);
-G2L["16"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
-G2L["16"]["BorderStrokePosition"] = Enum.BorderStrokePosition.Inner;
+G2L["26"] = Instance.new("UIStroke", G2L["25"]);
+G2L["26"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["26"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["26"]["BorderStrokePosition"] = Enum.BorderStrokePosition.Inner;
 
 
 -- StarterGui.Sigmaware.xxx.name
-G2L["17"] = Instance.new("TextLabel", G2L["14"]);
-G2L["17"]["TextWrapped"] = true;
-G2L["17"]["BorderSizePixel"] = 0;
-G2L["17"]["TextSize"] = 50;
-G2L["17"]["TextScaled"] = true;
-G2L["17"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["17"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["17"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["17"]["BackgroundTransparency"] = 1;
-G2L["17"]["Size"] = UDim2.new(1, 0, 0.125, 0);
-G2L["17"]["Visible"] = false;
-G2L["17"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["17"]["Text"] = [[brkapery]];
-G2L["17"]["Name"] = [[name]];
-G2L["17"]["Position"] = UDim2.new(0, 0, 0.125, 0);
+G2L["27"] = Instance.new("TextLabel", G2L["24"]);
+G2L["27"]["TextWrapped"] = true;
+G2L["27"]["BorderSizePixel"] = 0;
+G2L["27"]["TextSize"] = 50;
+G2L["27"]["TextScaled"] = true;
+G2L["27"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["27"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["27"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["27"]["BackgroundTransparency"] = 1;
+G2L["27"]["Size"] = UDim2.new(1, 0, 0.125, 0);
+G2L["27"]["Visible"] = false;
+G2L["27"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["27"]["Text"] = [[brkapery]];
+G2L["27"]["Name"] = [[name]];
+G2L["27"]["Position"] = UDim2.new(0, 0, 0.125, 0);
 
 
 -- StarterGui.Sigmaware.xxx.name.UIStroke
-G2L["18"] = Instance.new("UIStroke", G2L["17"]);
-G2L["18"]["Transparency"] = 0.35;
-G2L["18"]["Thickness"] = 1.5;
+G2L["28"] = Instance.new("UIStroke", G2L["27"]);
+G2L["28"]["Transparency"] = 0.35;
+G2L["28"]["Thickness"] = 1.5;
 
 
 -- StarterGui.Sigmaware.xxx.pfp
-G2L["19"] = Instance.new("ImageLabel", G2L["14"]);
-G2L["19"]["BorderSizePixel"] = 0;
-G2L["19"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["19"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
-G2L["19"]["Size"] = UDim2.new(0.125, 0, 0.125, 0);
-G2L["19"]["Visible"] = false;
-G2L["19"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["19"]["BackgroundTransparency"] = 1;
-G2L["19"]["Name"] = [[pfp]];
-G2L["19"]["Position"] = UDim2.new(0.435, 0, 0, 0);
+G2L["29"] = Instance.new("ImageLabel", G2L["24"]);
+G2L["29"]["BorderSizePixel"] = 0;
+G2L["29"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["29"]["Image"] = [[rbxasset://textures/ui/GuiImagePlaceholder.png]];
+G2L["29"]["Size"] = UDim2.new(0.125, 0, 0.125, 0);
+G2L["29"]["Visible"] = false;
+G2L["29"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["29"]["BackgroundTransparency"] = 1;
+G2L["29"]["Name"] = [[pfp]];
+G2L["29"]["Position"] = UDim2.new(0.435, 0, 0, 0);
 
 
 -- StarterGui.Sigmaware.xxx.pfp.UICorner
-G2L["1a"] = Instance.new("UICorner", G2L["19"]);
-G2L["1a"]["CornerRadius"] = UDim.new(1, 0);
+G2L["2a"] = Instance.new("UICorner", G2L["29"]);
+G2L["2a"]["CornerRadius"] = UDim.new(1, 0);
 
 
 -- StarterGui.Sigmaware.xxx.pfp.UIStroke
-G2L["1b"] = Instance.new("UIStroke", G2L["19"]);
-G2L["1b"]["Thickness"] = 1.5;
-G2L["1b"]["Color"] = Color3.fromRGB(255, 255, 255);
+G2L["2b"] = Instance.new("UIStroke", G2L["29"]);
+G2L["2b"]["Thickness"] = 1.5;
+G2L["2b"]["Color"] = Color3.fromRGB(255, 255, 255);
 
 
 -- StarterGui.Sigmaware.xxx.HealthBar
-G2L["1c"] = Instance.new("Frame", G2L["14"]);
-G2L["1c"]["Visible"] = false;
-G2L["1c"]["BorderSizePixel"] = 0;
-G2L["1c"]["BackgroundColor3"] = Color3.fromRGB(78, 255, 0);
-G2L["1c"]["AnchorPoint"] = Vector2.new(0, 1);
-G2L["1c"]["Size"] = UDim2.new(0.005, 0, 0.6, 0);
-G2L["1c"]["Position"] = UDim2.new(0.29, 0, 0.85, 0);
-G2L["1c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1c"]["Name"] = [[HealthBar]];
+G2L["2c"] = Instance.new("Frame", G2L["24"]);
+G2L["2c"]["Visible"] = false;
+G2L["2c"]["BorderSizePixel"] = 0;
+G2L["2c"]["BackgroundColor3"] = Color3.fromRGB(78, 255, 0);
+G2L["2c"]["AnchorPoint"] = Vector2.new(0, 1);
+G2L["2c"]["Size"] = UDim2.new(0.005, 0, 0.6, 0);
+G2L["2c"]["Position"] = UDim2.new(0.29, 0, 0.85, 0);
+G2L["2c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2c"]["Name"] = [[HealthBar]];
 
 
 -- StarterGui.Sigmaware.xxx.HealthBar.UIStroke
-G2L["1d"] = Instance.new("UIStroke", G2L["1c"]);
+G2L["2d"] = Instance.new("UIStroke", G2L["2c"]);
 
 
 
 -- StarterGui.Sigmaware.xxx.Left
-G2L["1e"] = Instance.new("Frame", G2L["14"]);
-G2L["1e"]["BorderSizePixel"] = 0;
-G2L["1e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["1e"]["Size"] = UDim2.new(0.25, 0, 0.6, 0);
-G2L["1e"]["Position"] = UDim2.new(0.035, 0, 0.25, 0);
-G2L["1e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["1e"]["Name"] = [[Left]];
-G2L["1e"]["BackgroundTransparency"] = 1;
+G2L["2e"] = Instance.new("Frame", G2L["24"]);
+G2L["2e"]["BorderSizePixel"] = 0;
+G2L["2e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["2e"]["Size"] = UDim2.new(0.25, 0, 0.6, 0);
+G2L["2e"]["Position"] = UDim2.new(0.035, 0, 0.25, 0);
+G2L["2e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["2e"]["Name"] = [[Left]];
+G2L["2e"]["BackgroundTransparency"] = 1;
 
 
 -- StarterGui.Sigmaware.xxx.Left.UIListLayout
-G2L["1f"] = Instance.new("UIListLayout", G2L["1e"]);
-G2L["1f"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
-G2L["1f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["2f"] = Instance.new("UIListLayout", G2L["2e"]);
+G2L["2f"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
+G2L["2f"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
 
 -- StarterGui.Sigmaware.xxx.Left.HealthText
-G2L["20"] = Instance.new("TextLabel", G2L["1e"]);
-G2L["20"]["TextWrapped"] = true;
-G2L["20"]["BorderSizePixel"] = 0;
-G2L["20"]["TextSize"] = 14;
-G2L["20"]["TextXAlignment"] = Enum.TextXAlignment.Right;
-G2L["20"]["TextScaled"] = true;
-G2L["20"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["20"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["20"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["20"]["BackgroundTransparency"] = 1;
-G2L["20"]["Size"] = UDim2.new(0.1, 0, 0.1, 0);
-G2L["20"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["20"]["Text"] = [[100 hp]];
-G2L["20"]["Name"] = [[HealthText]];
+G2L["30"] = Instance.new("TextLabel", G2L["2e"]);
+G2L["30"]["TextWrapped"] = true;
+G2L["30"]["BorderSizePixel"] = 0;
+G2L["30"]["TextSize"] = 14;
+G2L["30"]["TextXAlignment"] = Enum.TextXAlignment.Right;
+G2L["30"]["TextScaled"] = true;
+G2L["30"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["30"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["30"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["30"]["BackgroundTransparency"] = 1;
+G2L["30"]["Size"] = UDim2.new(0.1, 0, 0.1, 0);
+G2L["30"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["30"]["Text"] = [[100 hp]];
+G2L["30"]["Name"] = [[HealthText]];
 
 
 -- StarterGui.Sigmaware.xxx.Left.HealthText.UIStroke
-G2L["21"] = Instance.new("UIStroke", G2L["20"]);
-G2L["21"]["Transparency"] = 0.35;
-G2L["21"]["Thickness"] = 1.5;
+G2L["31"] = Instance.new("UIStroke", G2L["30"]);
+G2L["31"]["Transparency"] = 0.35;
+G2L["31"]["Thickness"] = 1.5;
 
 
 -- StarterGui.Sigmaware.xxx.Bottom
-G2L["22"] = Instance.new("Frame", G2L["14"]);
-G2L["22"]["BorderSizePixel"] = 0;
-G2L["22"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["22"]["Size"] = UDim2.new(0.4, 0, 0.15, 0);
-G2L["22"]["Position"] = UDim2.new(0.3, 0, 0.85, 0);
-G2L["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["22"]["Name"] = [[Bottom]];
-G2L["22"]["BackgroundTransparency"] = 1;
+G2L["32"] = Instance.new("Frame", G2L["24"]);
+G2L["32"]["BorderSizePixel"] = 0;
+G2L["32"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["32"]["Size"] = UDim2.new(0.4, 0, 0.15, 0);
+G2L["32"]["Position"] = UDim2.new(0.3, 0, 0.85, 0);
+G2L["32"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["32"]["Name"] = [[Bottom]];
+G2L["32"]["BackgroundTransparency"] = 1;
 
 
 -- StarterGui.Sigmaware.xxx.Bottom.UIListLayout
-G2L["23"] = Instance.new("UIListLayout", G2L["22"]);
-G2L["23"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
-G2L["23"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+G2L["33"] = Instance.new("UIListLayout", G2L["32"]);
+G2L["33"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
+G2L["33"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
 
 -- StarterGui.Sigmaware.xxx.Bottom.meters
-G2L["24"] = Instance.new("TextLabel", G2L["22"]);
-G2L["24"]["TextWrapped"] = true;
-G2L["24"]["BorderSizePixel"] = 0;
-G2L["24"]["TextSize"] = 14;
-G2L["24"]["TextScaled"] = true;
-G2L["24"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["24"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
-G2L["24"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["24"]["BackgroundTransparency"] = 1;
-G2L["24"]["Size"] = UDim2.new(0.1, 0, 0.35, 0);
-G2L["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["24"]["Text"] = [[15m]];
-G2L["24"]["Name"] = [[meters]];
+G2L["34"] = Instance.new("TextLabel", G2L["32"]);
+G2L["34"]["TextWrapped"] = true;
+G2L["34"]["BorderSizePixel"] = 0;
+G2L["34"]["TextSize"] = 14;
+G2L["34"]["TextScaled"] = true;
+G2L["34"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["34"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["34"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["34"]["BackgroundTransparency"] = 1;
+G2L["34"]["Size"] = UDim2.new(0.1, 0, 0.35, 0);
+G2L["34"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["34"]["Text"] = [[15m]];
+G2L["34"]["Name"] = [[meters]];
 
 
 -- StarterGui.Sigmaware.xxx.Bottom.meters.UIStroke
-G2L["25"] = Instance.new("UIStroke", G2L["24"]);
-G2L["25"]["Transparency"] = 0.35;
-G2L["25"]["Thickness"] = 1.5;
+G2L["35"] = Instance.new("UIStroke", G2L["34"]);
+G2L["35"]["Transparency"] = 0.35;
+G2L["35"]["Thickness"] = 1.5;
 
 
 -- StarterGui.Sigmaware.Cheats
-G2L["26"] = Instance.new("Folder", G2L["1"]);
-G2L["26"]["Name"] = [[Cheats]];
+G2L["36"] = Instance.new("Folder", G2L["1"]);
+G2L["36"]["Name"] = [[Cheats]];
 
 
 -- StarterGui.Sigmaware.Cheats.Bhop
-G2L["27"] = Instance.new("LocalScript", G2L["26"]);
-G2L["27"]["Name"] = [[Bhop]];
+G2L["37"] = Instance.new("LocalScript", G2L["36"]);
+G2L["37"]["Name"] = [[Bhop]];
 
 
 -- StarterGui.Sigmaware.Cheats.Aimbot
-G2L["28"] = Instance.new("LocalScript", G2L["26"]);
-G2L["28"]["Name"] = [[Aimbot]];
+G2L["38"] = Instance.new("LocalScript", G2L["36"]);
+G2L["38"]["Name"] = [[Aimbot]];
 
 
 -- StarterGui.Sigmaware.Cheats.TriggerBot
-G2L["29"] = Instance.new("LocalScript", G2L["26"]);
-G2L["29"]["Name"] = [[TriggerBot]];
+G2L["39"] = Instance.new("LocalScript", G2L["36"]);
+G2L["39"]["Name"] = [[TriggerBot]];
 
 
 -- StarterGui.Sigmaware.Cheats.ESP
-G2L["2a"] = Instance.new("LocalScript", G2L["26"]);
-G2L["2a"]["Name"] = [[ESP]];
+G2L["3a"] = Instance.new("LocalScript", G2L["36"]);
+G2L["3a"]["Name"] = [[ESP]];
 
 
 -- StarterGui.Sigmaware.Cheats.Glow
-G2L["2b"] = Instance.new("LocalScript", G2L["26"]);
-G2L["2b"]["Name"] = [[Glow]];
+G2L["3b"] = Instance.new("LocalScript", G2L["36"]);
+G2L["3b"]["Name"] = [[Glow]];
 
 
 -- StarterGui.Sigmaware.Config Manager
-G2L["2c"] = Instance.new("ModuleScript", G2L["1"]);
-G2L["2c"]["Name"] = [[Config Manager]];
+G2L["3c"] = Instance.new("ModuleScript", G2L["1"]);
+G2L["3c"]["Name"] = [[Config Manager]];
 
 
 -- Require G2L wrapper
@@ -392,9 +541,9 @@ local function require(Module:ModuleScript)
     return G2L_REQUIRE(Module);
 end
 
-G2L_MODULES[G2L["11"]] = {
+G2L_MODULES[G2L["21"]] = {
 Closure = function()
-    local script = G2L["11"];local module = {}
+    local script = G2L["21"];local module = {}
 
 --module.Settings = {
 --    --AIMBOT_Test = false,
@@ -514,6 +663,7 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
     text.Size = UDim2.fromScale(0.3, 1)
     text.BackgroundTransparency = 1
     text.Font = TextFont
+    text.AutomaticSize = Enum.AutomaticSize.X
     text.TextScaled = false
     text.TextSize = 20
     text.TextXAlignment = Enum.TextXAlignment.Left
@@ -764,9 +914,9 @@ return module
 
 end;
 };
-G2L_MODULES[G2L["2c"]] = {
+G2L_MODULES[G2L["3c"]] = {
 Closure = function()
-    local script = G2L["2c"];local module = {}
+    local script = G2L["3c"];local module = {}
 
 local http = game:GetService("HttpService")
 
@@ -801,55 +951,107 @@ _G.Config = {
     MISC_BunnyHop = false
 }
 
---function module.Save(name)
---    local success, data = pcall(function()
---        return http:JSONEncode(_G.Config)
---    end)
+function module.Save(name, box, textbox)
+    local folderPath = "Sigmaware-Blox-Strike//Configs//"
+    local success, data = pcall(function()
+        return http:JSONEncode(_G.Config)
+    end)
 
---    if success then
---        if not name then
---            name = FILE_NAME
---        else
---            name = tostring(name)
---        end
+    if success then
+        if name == "" then
+            name = string.format("Sigmaware-Blox-Strike//Configs//%s.json", FILE_NAME)
+        else
+            name = string.format("Sigmaware-Blox-Strike//Configs//%s.json", name)
+        end
         
---        writefile(name, data)
---        rconsoleprint("Config successfully saved.")
---    else
---        rconsolewarn("Unsuccessful to save -> ", tostring(data))
---    end
---end
+        writefile(name, data)
+        rconsoleprint("Config successfully saved.")
+        module.Refresh(box, textbox)
+    else
+        rconsolewarn("Unsuccessful to save -> ", tostring(data))
+    end
+end
 
---function module.Load(name)
---    if isfile(FILE_NAME) then
---        local success, data = pcall(function()
---            local content = readfile(FILE_NAME)
---            return http:JSONDecode(content)
---        end)
+function module.Load(name, box, textbox)
+    if name == "" then
+        name = string.format("Sigmaware-Blox-Strike//Configs//%s.json", FILE_NAME)
+    else
+        name = string.format("Sigmaware-Blox-Strike//Configs//%s.json", name)
+    end
+    
+    if isfile(name) then
+        local success, data = pcall(function()
+            local content = readfile(name)
+            return http:JSONDecode(content)
+        end)
 
---        if success and type(data) == "table" then
---            for key, value in pairs(data) do
---                _G.Config[key] = value
---            end
---            rconsoleprint("Config successfully loaded.")
---        else
---            rconsolewarn("Unsuccessful to load -> ", tostring(data))
---        end
---    else
---        module.Save(name)
---    end
---end
+        if success and type(data) == "table" then
+            for key, value in pairs(data) do
+                _G.Config[key] = value
+            end
+            rconsoleprint("Config successfully loaded.")
+        else
+            rconsolewarn("Unsuccessful to load -> ", tostring(data))
+        end
+    else
+        module.Save(name, box, textbox)
+    end
+end
+
+function module.GetConfigList()
+    local folderPath = "Sigmaware-Blox-Strike/Configs"
+    if not isfolder(folderPath) then return {} end
+
+    local allFiles = listfiles(folderPath)
+    local configNames = {}
+
+    for _, path in pairs(allFiles) do
+        local name = path:match("([^\\/]+)%.json$") or path:match("([^\\/]+)$")
+
+        if name then
+            table.insert(configNames, name)
+        end
+    end
+
+    return configNames
+end
+
+function module.Refresh(Configs, TextBox)
+    local configNames = module.GetConfigList()
+
+    for _, z in pairs(configNames) do
+        print(z)
+        if not Configs:FindFirstChild(tostring(z)) then
+            local option = Instance.new("TextButton", Configs)
+            option.Name = tostring(z)
+            option.Text = tostring(z)
+            option.BackgroundTransparency = 1
+            option.Size = UDim2.fromScale(1, 0.085)
+            option.TextColor3 = Color3.new(1, 1, 1)
+            option.TextScaled = true
+            option.TextWrapped = true
+            option.Font = Enum.Font.RobotoMono
+
+            option.MouseButton1Click:Connect(function()
+                TextBox.Text = tostring(z)
+            end)
+        end
+    end
+end
 
 return module
 
 end;
 };
 -- StarterGui.Sigmaware.CreatingMenu
-local function C_10()
-local script = G2L["10"];
+local function C_20()
+local script = G2L["20"];
 	---- Main Menu
 	local MenuHandling = require(script.Parent.MenuHandlingModule)
 	local ConfigModule = require(script.Parent["Config Manager"])
+	
+	local GUI = script.Parent
+	local Menu = script.Parent.Menu
 	
 	-- Services
 	local uis = game:GetService("UserInputService")
@@ -886,12 +1088,31 @@ local script = G2L["10"];
 	})
 	MenuHandling.CreateCheckBox("MiscTab", "BunnyHop", "MISC_BunnyHop")
 	
+	-- Config Tab
+	MenuHandling.CreateButtonTab("Config", "ConfigTab")
+	local ConfigManager = require(script.Parent["Config Manager"])
+	
+	local ConfigTab = Menu.Tabs.ConfigTab
+	local Box = ConfigTab.Box
+	local Configs = ConfigTab.Configs
+	local ConfigNameBox = ConfigTab.ConfigName
+	local SaveButton = Box.SaveButton
+	local LoadButton = Box.LoadButton
+	
+	SaveButton.MouseButton1Click:Connect(function()
+	    ConfigManager.Save(ConfigNameBox.Text, Configs, ConfigNameBox)
+	end)
+	
+	LoadButton.MouseButton1Click:Connect(function()
+	    ConfigManager.Load(ConfigNameBox.Text, Configs, ConfigNameBox)
+	end)
+	
+	ConfigManager.Refresh(Configs, ConfigNameBox)
+	
 	----- Additionals (cool stuff)
 	
 	local config = _G.Config
 	local localPlayer = game:GetService("Players").LocalPlayer
-	local GUI = script.Parent
-	local Menu = script.Parent.Menu
 	local TitleMenu = Menu.TitleMenu
 	local RainbowLine = Menu.RainbowLine
 	
@@ -906,8 +1127,6 @@ local script = G2L["10"];
 	-- Rainbow Text & Rainbow Line
 	local multi = 0.5 -- how fast it goes
 	local val = 0
-	
-	task.wait(3)
 	
 	local WatermarkGUI = Instance.new("ScreenGui", localPlayer:FindFirstChild("PlayerGui"))
 	WatermarkGUI.Name = "WatermarkGUI"
@@ -982,12 +1201,24 @@ local script = G2L["10"];
 	        currentPing = math.floor(localPlayer:GetNetworkPing() * 1000)
 	
 	        if config.MISC_Watermark then
+	            local speed = 0
 	            WatermarkFrame.nickname.Text = localPlayer.Name or ""
 	            WatermarkFrame.ping.Text = "PING: " .. currentPing .. "ms" or ""
 	            WatermarkFrame.fps.Text = "FPS: " .. currentFps
 	            if localPlayer and localPlayer.Character then 
-	                local speed = math.floor(localPlayer.Character:FindFirstChild("HumanoidRootPart").Velocity.Magnitude)
-	                WatermarkFrame.speed.Text = speed .. "m/s"
+	                local hrp = localPlayer.Character:FindFirstChild("HumanoidRootPart")
+	                local humanoid = localPlayer.Character:FindFirstChildOfClass("Humanoid")
+	                if not hrp and not humanoid then return end
+	                
+	                if hrp then
+	                    speed = math.floor(hrp.Velocity.Magnitude)
+	                else
+	                    speed = 0
+	                end
+	                
+	                if humanoid.Health > 0 then
+	                    WatermarkFrame.speed.Text = tostring(speed) .. "m/s"
+	                end
 	            end
 	        end
 	        task.wait(0.5)
@@ -1021,11 +1252,24 @@ local script = G2L["10"];
 	        WatermarkUI.Visible = false
 	    end
 	end)
+	
+	-- Making Folders in executor Folder if they don't exist
+	task.spawn(function()
+	    if isfolder and makefolder then
+	        if not isfolder("Sigmaware-Blox-Strike") then
+	            makefolder("Sigmaware-Blox-Strike")
+	        end
+	
+	        if not isfolder("Sigmaware-Blox-Strike//Configs") then
+	            makefolder("Sigmaware-Blox-Strike//Configs")
+	        end
+	    end
+	end)
 end;
-task.spawn(C_10);
+task.spawn(C_20);
 -- StarterGui.Sigmaware.CheatsFunctions
-local function C_12()
-local script = G2L["12"];
+local function C_22()
+local script = G2L["22"];
 	local ConfigModule = require(script.Parent["Config Manager"])
 	local config = _G.Config
 	
@@ -1067,10 +1311,10 @@ local script = G2L["12"];
 	
 	
 end;
-task.spawn(C_12);
+task.spawn(C_22);
 -- StarterGui.Sigmaware.DragMenuScript
-local function C_13()
-local script = G2L["13"];
+local function C_23()
+local script = G2L["23"];
 	--// Services
 	local Players = game:GetService('Players')
 	local UIS = game:GetService("UserInputService")
@@ -1126,10 +1370,10 @@ local script = G2L["13"];
 	    end
 	end)
 end;
-task.spawn(C_13);
+task.spawn(C_23);
 -- StarterGui.Sigmaware.Cheats.Bhop
-local function C_27()
-local script = G2L["27"];
+local function C_37()
+local script = G2L["37"];
 	local ConfigModule = require(script.Parent.Parent["Config Manager"])
 	local config = _G.Config
 	
@@ -1171,16 +1415,16 @@ local script = G2L["27"];
 	    end
 	end)
 end;
-task.spawn(C_27);
+task.spawn(C_37);
 -- StarterGui.Sigmaware.Cheats.Aimbot
-local function C_28()
-local script = G2L["28"];
+local function C_38()
+local script = G2L["38"];
 	-- Aimbot
 end;
-task.spawn(C_28);
+task.spawn(C_38);
 -- StarterGui.Sigmaware.Cheats.TriggerBot
-local function C_29()
-local script = G2L["29"];
+local function C_39()
+local script = G2L["39"];
 	local ConfigModule = require(script.Parent.Parent["Config Manager"])
 	local config = _G.Config
 	
@@ -1230,10 +1474,10 @@ local script = G2L["29"];
 	    end
 	end)
 end;
-task.spawn(C_29);
+task.spawn(C_39);
 -- StarterGui.Sigmaware.Cheats.ESP
-local function C_2a()
-local script = G2L["2a"];
+local function C_3a()
+local script = G2L["3a"];
 	local ConfigModule = require(script.Parent.Parent["Config Manager"])
 	local config = _G.Config
 	
@@ -1371,6 +1615,10 @@ local script = G2L["2a"];
 	
 	rs.RenderStepped:Connect(function()
 	    for _, player in pairs(players:GetPlayers()) do
+	        if not player then
+	            SkeletonLines[player] = nil
+	        end
+	        
 	        local lines = SkeletonLines[player]
 	
 	        if not player.Parent then
@@ -1418,10 +1666,10 @@ local script = G2L["2a"];
 	    end
 	end)
 end;
-task.spawn(C_2a);
+task.spawn(C_3a);
 -- StarterGui.Sigmaware.Cheats.Glow
-local function C_2b()
-local script = G2L["2b"];
+local function C_3b()
+local script = G2L["3b"];
 	local ConfigModule = require(script.Parent.Parent["Config Manager"])
 	local config = _G.Config
 	
@@ -1439,6 +1687,7 @@ local script = G2L["2b"];
 	        end
 	
 	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+	        if not humanoid then return end
 	        local team = player:GetAttribute("Team")
 	
 	        if team == localPlayer:GetAttribute("Team") then
@@ -1453,12 +1702,6 @@ local script = G2L["2b"];
 	            highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
 	            highlight.FillTransparency = 1
 	        end
-	        
-	        humanoid.Died:Connect(function()
-	            if player.Character:FindFirstChild("some") then
-	                player.Character:FindFirstChild("some"):Destroy()
-	            end
-	        end)
 	    end
 	end
 	
@@ -1488,6 +1731,6 @@ local script = G2L["2b"];
 	
 	end)
 end;
-task.spawn(C_2b);
+task.spawn(C_3b);
 
 return G2L["1"], require;
