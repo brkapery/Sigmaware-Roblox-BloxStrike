@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 33 | Scripts: 3 | Modules: 1 | Tags: 0
+-- Instances: 44 | Scripts: 8 | Modules: 2 | Tags: 0
 local G2L = {};
 
 -- StarterGui.Sigmaware
@@ -303,6 +303,80 @@ G2L["21"]["Transparency"] = 0.35;
 G2L["21"]["Thickness"] = 1.5;
 
 
+-- StarterGui.Sigmaware.xxx.Bottom
+G2L["22"] = Instance.new("Frame", G2L["14"]);
+G2L["22"]["BorderSizePixel"] = 0;
+G2L["22"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["22"]["Size"] = UDim2.new(0.4, 0, 0.15, 0);
+G2L["22"]["Position"] = UDim2.new(0.3, 0, 0.85, 0);
+G2L["22"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["22"]["Name"] = [[Bottom]];
+G2L["22"]["BackgroundTransparency"] = 1;
+
+
+-- StarterGui.Sigmaware.xxx.Bottom.UIListLayout
+G2L["23"] = Instance.new("UIListLayout", G2L["22"]);
+G2L["23"]["HorizontalFlex"] = Enum.UIFlexAlignment.Fill;
+G2L["23"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
+
+
+-- StarterGui.Sigmaware.xxx.Bottom.meters
+G2L["24"] = Instance.new("TextLabel", G2L["22"]);
+G2L["24"]["TextWrapped"] = true;
+G2L["24"]["BorderSizePixel"] = 0;
+G2L["24"]["TextSize"] = 14;
+G2L["24"]["TextScaled"] = true;
+G2L["24"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["24"]["FontFace"] = Font.new([[rbxasset://fonts/families/RobotoMono.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["24"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["24"]["BackgroundTransparency"] = 1;
+G2L["24"]["Size"] = UDim2.new(0.1, 0, 0.35, 0);
+G2L["24"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["24"]["Text"] = [[15m]];
+G2L["24"]["Name"] = [[meters]];
+
+
+-- StarterGui.Sigmaware.xxx.Bottom.meters.UIStroke
+G2L["25"] = Instance.new("UIStroke", G2L["24"]);
+G2L["25"]["Transparency"] = 0.35;
+G2L["25"]["Thickness"] = 1.5;
+
+
+-- StarterGui.Sigmaware.Cheats
+G2L["26"] = Instance.new("Folder", G2L["1"]);
+G2L["26"]["Name"] = [[Cheats]];
+
+
+-- StarterGui.Sigmaware.Cheats.Bhop
+G2L["27"] = Instance.new("LocalScript", G2L["26"]);
+G2L["27"]["Name"] = [[Bhop]];
+
+
+-- StarterGui.Sigmaware.Cheats.Aimbot
+G2L["28"] = Instance.new("LocalScript", G2L["26"]);
+G2L["28"]["Name"] = [[Aimbot]];
+
+
+-- StarterGui.Sigmaware.Cheats.TriggerBot
+G2L["29"] = Instance.new("LocalScript", G2L["26"]);
+G2L["29"]["Name"] = [[TriggerBot]];
+
+
+-- StarterGui.Sigmaware.Cheats.ESP
+G2L["2a"] = Instance.new("LocalScript", G2L["26"]);
+G2L["2a"]["Name"] = [[ESP]];
+
+
+-- StarterGui.Sigmaware.Cheats.Glow
+G2L["2b"] = Instance.new("LocalScript", G2L["26"]);
+G2L["2b"]["Name"] = [[Glow]];
+
+
+-- StarterGui.Sigmaware.Config Manager
+G2L["2c"] = Instance.new("ModuleScript", G2L["1"]);
+G2L["2c"]["Name"] = [[Config Manager]];
+
+
 -- Require G2L wrapper
 local G2L_REQUIRE = require;
 local G2L_MODULES = {};
@@ -322,22 +396,28 @@ G2L_MODULES[G2L["11"]] = {
 Closure = function()
     local script = G2L["11"];local module = {}
 
-module.Settings = {
-    --AIMBOT_Test = false,
-    --TEST_Slider = 5,
-    ESP_Enabled = false,
-    ESP_Box = false,
-    ESP_HealthBar = false,
-    ESP_HealthText = false,
-    ESP_Name = false,
-    ESP_Pfp = false,
-    ESP_Skeleton = false,
-    ESP_Glow = false,
-    MISC_Watermark = false,
-    WATERMARK_Player = false,
-    WATERMARK_Fps = false,
-    WATERMARK_Ping = false
-}
+--module.Settings = {
+--    --AIMBOT_Test = false,
+--    --TEST_Slider = 5,
+--    ESP_Enabled = false,
+--    ESP_Box = false,
+--    ESP_HealthBar = false,
+--    ESP_HealthText = false,
+--    ESP_Name = false,
+--    ESP_Pfp = false,
+--    ESP_Distance = false,
+--    ESP_Skeleton = false,
+--    ESP_Glow = false,
+--    MISC_Watermark = false,
+--    MISC_BunnyHop = false,
+--    WATERMARK_Player = false,
+--    WATERMARK_Fps = false,
+--    WATERMARK_Ping = false,
+--    WATERMARK_Speed = false
+--}
+
+local ConfigModule = require(script.Parent["Config Manager"])
+local config = _G.Config
 
 local TextFont = Enum.Font.RobotoMono
 
@@ -395,7 +475,7 @@ local function CreatingTab(tabName)
 end
 
 -- Creating CheckBox
-function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSetting, maxNumSlider)
+function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSetting, maxNumSlider, symbolSlider)
     local frame = nil
     
     -- finding frame
@@ -419,21 +499,31 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
     local uiCorner = Instance.new("UICorner", button)
     uiCorner.CornerRadius = UDim.new(0, 8)
     
-    local text = Instance.new("TextLabel", button)
+    local framelist = Instance.new("Frame", button)
+    framelist.BackgroundTransparency = 1
+    framelist.Position = UDim2.fromScale(1.215, 0)
+    framelist.Size = UDim2.fromScale(15, 1)
+    
+    local uilistFramelist = Instance.new("UIListLayout", framelist)
+    uilistFramelist.FillDirection = Enum.FillDirection.Horizontal
+    uilistFramelist.SortOrder = Enum.SortOrder.LayoutOrder
+    uilistFramelist.Wraps = true
+    
+    local text = Instance.new("TextLabel", framelist)
     text.Text = tostring(name)
-    text.Position = UDim2.fromScale(1.215 -0.007)
-    text.Size = UDim2.fromScale(2.543, 1)
+    text.Size = UDim2.fromScale(0.3, 1)
     text.BackgroundTransparency = 1
     text.Font = TextFont
     text.TextScaled = false
     text.TextSize = 20
     text.TextXAlignment = Enum.TextXAlignment.Left
     text.TextColor3 = Color3.new(1, 1, 1)
+    text.TextWrapped = true
     
     button.MouseButton1Click:Connect(function()
-        module.Settings[tostring(setting)] = not module.Settings[tostring(setting)]
+        config[tostring(setting)] = not config[tostring(setting)]
         
-        if module.Settings[tostring(setting)] == true then
+        if config[tostring(setting)] == true then
             button.Image = IDcheckmarked
         else
             button.Image = ""
@@ -443,10 +533,17 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
     -- creating Slider
     
     if sliderBoolean then
-        local Slider = Instance.new("Frame", button)
+        if not maxNumSlider then
+            maxNumSlider = 100
+        end
+        
+        if not symbolSlider then
+            symbolSlider = ""
+        end
+        
+        local Slider = Instance.new("Frame", framelist)
         Slider.BackgroundColor3 = Color3.new(0.290196, 0.290196, 0.290196)
-        Slider.Position = UDim2.fromScale(4, -0.007)
-        Slider.Size = UDim2.fromScale(8, 1)
+        Slider.Size = UDim2.fromScale(0.5, 1)
         Slider.Visible = false
         
         local textSlider = Instance.new("TextLabel", Slider)
@@ -456,7 +553,8 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
         textSlider.TextScaled = true
         textSlider.TextColor3 = Color3.new(1, 1, 1)
         textSlider.ZIndex = 2
-        textSlider.Text = tostring(module.Settings[tostring(sliderSetting)])
+        textSlider.Text = tostring(config[tostring(sliderSetting)]) .. tostring(symbolSlider)
+        textSlider.TextWrapped = true
         
         local UICornerSlider = Instance.new("UICorner", Slider)
         UICornerSlider.CornerRadius = UDim.new(0, 8)
@@ -464,10 +562,9 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
         local FillSlider = Instance.new("Frame", Slider)
         FillSlider.BackgroundColor3 = Color3.new(1, 0.560784, 0.411765)
         FillSlider.Position = UDim2.fromScale(0.021, 0.13)
-        FillSlider.Size = UDim2.fromScale(0.955, 0.683)
-        local rawSlider = math.clamp(module.Settings[tostring(sliderSetting)] / maxNumSlider, 0, 1)
+        local rawSlider = math.clamp(config[tostring(sliderSetting)] / maxNumSlider, 0, 1)
         local finalslider = rawSlider * 0.955
-        FillSlider.Size = UDim2.fromScale(finalslider, 0.683)
+        FillSlider.Size = UDim2.fromScale(finalslider, 0.75)
         
         local UICornerFillSlider = UICornerSlider:Clone()
         UICornerFillSlider.Parent = FillSlider
@@ -477,10 +574,6 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
         buttonSlider.Size = UDim2.fromScale(1, 1)
         buttonSlider.BackgroundTransparency = 1
         buttonSlider.Text = ""
-        
-        if not maxNumSlider then
-            maxNumSlider = 100
-        end
         
         local sliderActive = false
         
@@ -495,9 +588,9 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
                     
                     local finalWidth = rawPercentage * 0.955
                     
-                    FillSlider.Size = UDim2.fromScale(finalWidth, 0.683)
+                    FillSlider.Size = UDim2.fromScale(finalWidth, 0.75)
                     
-                    textSlider.Text = math.floor(rawPercentage * maxNumSlider)
+                    textSlider.Text = math.floor(rawPercentage * maxNumSlider) .. tostring(symbolSlider)
                     
                     sliderSetting = math.floor(rawPercentage * maxNumSlider)
 
@@ -513,7 +606,7 @@ function module.CreateCheckBox(tabName, name, setting, sliderBoolean, sliderSett
         end)
         
         button.MouseButton1Click:Connect(function()
-            Slider.Visible = not module.Settings[tostring(setting)]
+            Slider.Visible = not config[tostring(setting)]
         end)
     end
 end
@@ -555,6 +648,7 @@ function module.CreateMultiCheckBox(tabName, name, settings)
     text1.TextSize = 20
     text1.TextXAlignment = Enum.TextXAlignment.Left
     text1.TextColor3 = Color3.new(1, 1, 1)
+    text1.TextWrapped = true
     
     -- Creating frame for checkmarks
     
@@ -616,11 +710,12 @@ function module.CreateMultiCheckBox(tabName, name, settings)
         text.TextSize = 20
         text.TextXAlignment = Enum.TextXAlignment.Left
         text.TextColor3 = Color3.new(1, 1, 1)
+        text.TextWrapped = true
 
         button.MouseButton1Click:Connect(function()
-            module.Settings[settingKey] = not module.Settings[settingKey]
+            config[settingKey] = not config[settingKey]
 
-            if module.Settings[settingKey] == true then
+            if config[settingKey] == true then
                 button.Image = IDcheckmarked
             else
                 button.Image = ""
@@ -645,6 +740,7 @@ function module.CreateButtonTab(name, tabName)
     button.BackgroundColor3 = Color3.new(0.235294, 0.235294, 0.235294)
     button.Name = tostring(name .. "Button")
     button.Text = tostring(name)
+    button.TextWrapped = true
     button.TextScaled = true
     button.TextColor3 = Color3.new(1, 1, 1)
     button.Font = TextFont
@@ -668,21 +764,105 @@ return module
 
 end;
 };
+G2L_MODULES[G2L["2c"]] = {
+Closure = function()
+    local script = G2L["2c"];local module = {}
+
+local http = game:GetService("HttpService")
+
+local FILE_NAME = "Default"
+
+_G.Config = {
+    --AIMBOT_Test = false,
+    --TEST_Slider = 5,
+    
+    -- Aimbot
+    AIMBOT_TriggerBot = false,
+    TRIGGERBOT_Delay = 0, -- 0ms
+    TRIGGERBOT_Key = Enum.KeyCode.C,
+    
+    -- ESP
+    ESP_Enabled = false,
+    ESP_Box = false,
+    ESP_HealthBar = false,
+    ESP_HealthText = false,
+    ESP_Name = false,
+    ESP_Pfp = false,
+    ESP_Distance = false,
+    ESP_Skeleton = false,
+    ESP_Glow = false,
+    
+    -- MISC
+    MISC_Watermark = false,
+    WATERMARK_Player = false,
+    WATERMARK_Fps = false,
+    WATERMARK_Ping = false,
+    WATERMARK_Speed = false,
+    MISC_BunnyHop = false
+}
+
+--function module.Save(name)
+--    local success, data = pcall(function()
+--        return http:JSONEncode(_G.Config)
+--    end)
+
+--    if success then
+--        if not name then
+--            name = FILE_NAME
+--        else
+--            name = tostring(name)
+--        end
+        
+--        writefile(name, data)
+--        rconsoleprint("Config successfully saved.")
+--    else
+--        rconsolewarn("Unsuccessful to save -> ", tostring(data))
+--    end
+--end
+
+--function module.Load(name)
+--    if isfile(FILE_NAME) then
+--        local success, data = pcall(function()
+--            local content = readfile(FILE_NAME)
+--            return http:JSONDecode(content)
+--        end)
+
+--        if success and type(data) == "table" then
+--            for key, value in pairs(data) do
+--                _G.Config[key] = value
+--            end
+--            rconsoleprint("Config successfully loaded.")
+--        else
+--            rconsolewarn("Unsuccessful to load -> ", tostring(data))
+--        end
+--    else
+--        module.Save(name)
+--    end
+--end
+
+return module
+
+end;
+};
 -- StarterGui.Sigmaware.CreatingMenu
 local function C_10()
 local script = G2L["10"];
 	---- Main Menu
 	local MenuHandling = require(script.Parent.MenuHandlingModule)
+	local ConfigModule = require(script.Parent["Config Manager"])
+	
+	-- Services
 	local uis = game:GetService("UserInputService")
 	local rs = game:GetService("RunService")
 	
-	MenuHandling.CreateButtonTab("Aimbot", "AimbotTab")
+	-- Tabs & Buttons
+	
 	-- Aimbot Tab
-	--MenuHandling.CreateCheckBox("AimbotTab", "Test", "AIMBOT_Test", true, "TEST_Slider", 20)
+	MenuHandling.CreateButtonTab("Aimbot", "AimbotTab")
+	MenuHandling.CreateCheckBox("AimbotTab", "Trigger Bot", "AIMBOT_TriggerBot", true, "TRIGGERBOT_Delay", 1000, "ms")
 	
-	
-	MenuHandling.CreateButtonTab("Visuals", "VisualsTab")
 	-- Visuals Tab
+	MenuHandling.CreateButtonTab("Visuals", "VisualsTab")
 	MenuHandling.CreateCheckBox("VisualsTab", "Enabled", "ESP_Enabled")
 	MenuHandling.CreateMultiCheckBox("VisualsTab", "Esp Options", {
 	    {"Box", "ESP_Box"},
@@ -690,28 +870,25 @@ local script = G2L["10"];
 	    {"Health Text", "ESP_HealthText"},
 	    {"Name", "ESP_Name"},
 	    {"Pfp", "ESP_Pfp"},
-	    {"Health Bar", "ESP_HealthBar"},
+	    {"Distance", "ESP_Distance"},
 	    {"Skeleton", "ESP_Skeleton"}
 	})
 	MenuHandling.CreateCheckBox("VisualsTab", "Glow", "ESP_Glow")
 	
-	
-	
-	MenuHandling.CreateButtonTab("Misc", "MiscTab")
 	-- Misc Tab
+	MenuHandling.CreateButtonTab("Misc", "MiscTab")
 	MenuHandling.CreateCheckBox("MiscTab", "Watermark", "MISC_Watermark")
 	MenuHandling.CreateMultiCheckBox("MiscTab", "Watermark Options", {
 	    {"Player", "WATERMARK_Player"},
 	    {"FPS", "WATERMARK_Fps"},
-	    {"Ping", "WATERMARK_Ping"}
+	    {"Ping", "WATERMARK_Ping"},
+	    {"Speed", "WATERMARK_Speed"}
 	})
-	--MenuHandling.CreateCheckBox("MiscTab", "W - Player", "WATERMARK_Player")
-	--MenuHandling.CreateCheckBox("MiscTab", "W - Fps", "WATERMARK_Fps")
-	--MenuHandling.CreateCheckBox("MiscTab", "W - Ping", "WATERMARK_Ping")
+	MenuHandling.CreateCheckBox("MiscTab", "BunnyHop", "MISC_BunnyHop")
 	
 	----- Additionals (cool stuff)
 	
-	local Settings = MenuHandling.Settings
+	local config = _G.Config
 	local localPlayer = game:GetService("Players").LocalPlayer
 	local GUI = script.Parent
 	local Menu = script.Parent.Menu
@@ -719,17 +896,12 @@ local script = G2L["10"];
 	local RainbowLine = Menu.RainbowLine
 	
 	-- Open/Close Menu (INSERT)
-	--uis.InputBegan:Connect(function(key)
-	--    if key.KeyCode == Enum.KeyCode.Insert then
-	--        GUI.Enabled = not GUI.Enabled
-	--    end
-	--end)
 	
-	table.insert(_G, uis.InputBegan:Connect(function(key)
+	uis.InputBegan:Connect(function(key)
 	    if key.KeyCode == Enum.KeyCode.Insert then
 	        GUI.Enabled = not GUI.Enabled
 	    end
-	end))
+	end)
 	
 	-- Rainbow Text & Rainbow Line
 	local multi = 0.5 -- how fast it goes
@@ -787,6 +959,15 @@ local script = G2L["10"];
 	WatermarkpingText.TextScaled = true
 	WatermarkpingText.TextWrapped = true
 	WatermarkpingText.Font = Enum.Font.RobotoMono
+	local WatermarkspeedText = Instance.new("TextLabel", WatermarkFrame)
+	WatermarkspeedText.Name = "speed"
+	WatermarkspeedText.LayoutOrder = 3
+	WatermarkspeedText.Size = UDim2.new(1, 0, 1, 0)
+	WatermarkspeedText.BackgroundTransparency = 1
+	WatermarkspeedText.TextColor3 = Color3.new(1, 1, 1)
+	WatermarkspeedText.TextScaled = true
+	WatermarkspeedText.TextWrapped = true
+	WatermarkspeedText.Font = Enum.Font.RobotoMono
 	local RainbowLine2 = Instance.new("Frame", WatermarkUI)
 	RainbowLine2.Name = "RainbowLine"
 	RainbowLine2.Size = UDim2.new(1, 0, 0.1, 0)
@@ -800,9 +981,14 @@ local script = G2L["10"];
 	    while true do
 	        currentPing = math.floor(localPlayer:GetNetworkPing() * 1000)
 	
-	        if Settings.MISC_Watermark then
-	            WatermarkFrame.nickname.Text = Settings.WATERMARK_Player and localPlayer.Name or ""
-	            WatermarkFrame.ping.Text = Settings.WATERMARK_Ping and "PING: " .. currentPing .. "ms" or ""
+	        if config.MISC_Watermark then
+	            WatermarkFrame.nickname.Text = localPlayer.Name or ""
+	            WatermarkFrame.ping.Text = "PING: " .. currentPing .. "ms" or ""
+	            WatermarkFrame.fps.Text = "FPS: " .. currentFps
+	            if localPlayer and localPlayer.Character then 
+	                local speed = math.floor(localPlayer.Character:FindFirstChild("HumanoidRootPart").Velocity.Magnitude)
+	                WatermarkFrame.speed.Text = speed .. "m/s"
+	            end
 	        end
 	        task.wait(0.5)
 	    end
@@ -812,9 +998,8 @@ local script = G2L["10"];
 	    currentFps = math.floor(1/dt)
 	end)
 	
-	rs.RenderStepped:Connect(function(dt)
-	    val += dt * multi
-	    if math.abs(val) > 0.5 then multi = -multi end
+	rs.Heartbeat:Connect(function(dt)
+	    local val = math.sin(tick() * 2) * 0.5
 	
 	    local offset = Vector2.new(val, 0)
 	
@@ -824,19 +1009,14 @@ local script = G2L["10"];
 	    end
 	
 	    -- Watermark Visuals
-	    if Settings.MISC_Watermark then
+	    if config.MISC_Watermark then
 	        WatermarkUI.Visible = true
 	        uiGradient.Offset = offset
 	
-	        if Settings.WATERMARK_Fps then
-	            WatermarkFrame.fps.Visible = true
-	            WatermarkFrame.fps.Text = "FPS: " .. currentFps
-	        else
-	            WatermarkFrame.fps.Visible = false
-	        end
-	
-	        WatermarkFrame.nickname.Visible = Settings.WATERMARK_Player
-	        WatermarkFrame.ping.Visible = Settings.WATERMARK_Ping
+	        WatermarkFrame.nickname.Visible = config.WATERMARK_Player
+	        WatermarkFrame.ping.Visible = config.WATERMARK_Ping
+	        WatermarkFrame.fps.Visible = config.WATERMARK_Fps
+	        WatermarkFrame.speed.Visible = config.WATERMARK_Speed
 	    else
 	        WatermarkUI.Visible = false
 	    end
@@ -846,7 +1026,8 @@ task.spawn(C_10);
 -- StarterGui.Sigmaware.CheatsFunctions
 local function C_12()
 local script = G2L["12"];
-	local module = require(script.Parent.MenuHandlingModule)
+	local ConfigModule = require(script.Parent["Config Manager"])
+	local config = _G.Config
 	
 	-- Player variables
 	local camera = workspace.CurrentCamera
@@ -876,204 +1057,15 @@ local script = G2L["12"];
 	        end
 	        print("--==--")
 	    end
-	end)
-	
-	-- ESP GLOW
-	local function ESP_GLOW(player : Player)
-	    if player ~= localPlayer and player.Character then
-	        if not player or not player.Character then
-	            return
-	        end
-	        
-	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
-	        local team = player:GetAttribute("Team")
-	        
-	        if team == localPlayer:GetAttribute("Team") then
-	            if player.Character:FindFirstChild("some") then
-	                player.Character:FindFirstChild("some"):Destroy()
-	            end
-	            return
-	        end
-	
-	        if not player.Character:FindFirstChild("some") then
-	            local highlight = Instance.new("Highlight")
-	            highlight.Name = "some"
-	            highlight.Parent = player.Character
-	            highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
-	            highlight.FillTransparency = 1
-	        end
-	    end
-	end
-	
-	local function ESP_GLOW_DELETE()
-	    for _, v in pairs(game:GetService("Players"):GetPlayers()) do
-	        if v ~= game.Players.LocalPlayer and v.Character then
-	            if v.Character:FindFirstChild("some") then
-	                v.Character:FindFirstChild("some"):Destroy()
-	            end
-	        end
-	    end 
-	end
-	
-	local function ESP(player : Player)
-	    if player ~= localPlayer and player.Character then
-	        if not player or not player.Character then
-	            return
-	        end
-	        
-	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
-	        local team = player:GetAttribute("Team")
-	        
-	        --local armorInfo = https:JSONDecode(player:GetAttribute("Armor"))
-	        local health = math.round(humanoid.Health)
-	        
-	        if player.Character:FindFirstChild("xxx") then
-	            local esp = player.Character:FindFirstChild("xxx")
-	            if module.Settings.ESP_Box == true then
-	                esp.Box.Visible = true
-	            else
-	                esp.Box.Visible = false
-	            end
-	
-	            if module.Settings.ESP_HealthBar == true then
-	                esp.HealthBar.Visible = true
-	                esp.HealthBar.Size = UDim2.new(0.005, 0, (health / 100) * 0.6, 0)
-	            else
-	                esp.HealthBar.Visible = false
-	            end
-	            
-	            if module.Settings.ESP_HealthText == true then
-	                esp.Left.HealthText.Visible = true
-	                esp.Left.HealthText.Text = tostring(health)
-	            else
-	                esp.Left.HealthText.Visible = false
-	            end
-	
-	            if module.Settings.ESP_Name == true then
-	                esp.name.Visible = true
-	                esp.name.Text = player.Name
-	            else
-	                esp.name.Visible = false
-	            end
-	
-	            if module.Settings.ESP_Pfp == true then
-	                esp.pfp.Visible = true
-	                esp.pfp.Image = game:GetService("Players"):GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
-	            else
-	                esp.pfp.Visible = false
-	            end
-	        else
-	            if team ~= localPlayer:GetAttribute("Team") then
-	                local espClone = script.Parent.xxx:Clone()
-	
-	                espClone.Parent = player.Character
-	                espClone.Adornee = player.Character:FindFirstChild("HumanoidRootPart")
-	                espClone.Enabled = true
-	            else
-	                if player.Character:FindFirstChild("xxx") then
-	                    player.Character:FindFirstChild("xxx"):Destroy()
-	                end
-	            end
-	        end
-	    end
-	end
-	
-	rs.Heartbeat:Connect(function()
-	    -- ESP
-	    if module.Settings.ESP_Enabled == true then
-	        if module.Settings.ESP_Glow == true then
-	            for _, p in pairs(game:GetService("Players"):GetPlayers()) do
-	                ESP_GLOW(p)
-	            end
-	        else
-	            ESP_GLOW_DELETE()
-	        end
-	        
-	        for _, p in pairs(game:GetService("Players"):GetPlayers()) do
-	            ESP(p)
-	        end
-	    else
-	        ESP_GLOW_DELETE()
+	    
+	    if key.KeyCode == Enum.KeyCode.V then
+	        print(_G)
 	    end
 	end)
 	
-	-- Skeleton ESP
 	
-	local SkeletonLines = {}
 	
-	local BonePairs = {
-	    {"Head", "UpperTorso"},
-	    {"UpperTorso", "LowerTorso"},
-	    {"UpperTorso", "LeftUpperArm"}, {"LeftUpperArm", "LeftLowerArm"}, {"LeftLowerArm", "LeftHand"},
-	    {"UpperTorso", "RightUpperArm"}, {"RightUpperArm", "RightLowerArm"}, {"RightLowerArm", "RightHand"},
-	    {"LowerTorso", "LeftUpperLeg"}, {"LeftUpperLeg", "LeftLowerLeg"}, {"LeftLowerLeg", "LeftFoot"},
-	    {"LowerTorso", "RightUpperLeg"}, {"RightUpperLeg", "RightLowerLeg"}, {"RightLowerLeg", "RightFoot"}
-	}
 	
-	local function createSkeleton(player)
-	    if SkeletonLines[player] then return end
-	
-	    local lines = {}
-	    for i = 1, #BonePairs do
-	        local line = Drawing.new("Line")
-	        line.Visible = false
-	        line.Color = Color3.new(1, 1, 1)
-	        line.Thickness = 1.5
-	        line.Transparency = 1
-	        lines[i] = line
-	    end
-	    SkeletonLines[player] = lines
-	end
-	
-	rs.RenderStepped:Connect(function()
-	    for _, player in pairs(players:GetPlayers()) do
-	        local lines = SkeletonLines[player]
-	
-	        if not player.Parent then
-	            if lines then
-	                for _, l in pairs(lines) do l:Remove() end
-	                SkeletonLines[player] = nil
-	            end
-	            continue
-	        end
-	
-	        if not lines then createSkeleton(player) continue end
-	
-	        local char = player.Character
-	
-	        local isVisible = module.Settings and module.Settings.ESP_Enabled and module.Settings.ESP_Skeleton
-	        if char and isVisible and player ~= localPlayer then
-	            local humanoid = char:FindFirstChildOfClass("Humanoid")
-	
-	            if humanoid and humanoid.Health > 0 and player:GetAttribute("Team") ~= localPlayer:GetAttribute("Team") then
-	                for i, pair in pairs(BonePairs) do
-	                    local part1 = char:FindFirstChild(pair[1])
-	                    local part2 = char:FindFirstChild(pair[2])
-	                    local line = lines[i]
-	
-	                    if part1 and part2 then
-	                        local pos1, onScreen1 = camera:WorldToViewportPoint(part1.Position)
-	                        local pos2, onScreen2 = camera:WorldToViewportPoint(part2.Position)
-	
-	                        if onScreen1 and onScreen2 then
-	                            line.From = Vector2.new(pos1.X, pos1.Y)
-	                            line.To = Vector2.new(pos2.X, pos2.Y)
-	                            line.Visible = true
-	                        else
-	                            line.Visible = false
-	                        end
-	                    else
-	                        line.Visible = false
-	                    end
-	                end
-	            else
-	                for _, l in pairs(lines) do l.Visible = false end
-	            end
-	        else
-	            for _, l in pairs(lines) do l.Visible = false end
-	        end
-	    end
-	end)
 end;
 task.spawn(C_12);
 -- StarterGui.Sigmaware.DragMenuScript
@@ -1135,5 +1127,367 @@ local script = G2L["13"];
 	end)
 end;
 task.spawn(C_13);
+-- StarterGui.Sigmaware.Cheats.Bhop
+local function C_27()
+local script = G2L["27"];
+	local ConfigModule = require(script.Parent.Parent["Config Manager"])
+	local config = _G.Config
+	
+	local uis = game:GetService("UserInputService")
+	local localPlayer = game.Players.LocalPlayer
+	local rs = game:GetService("RunService")
+	
+	local bunnyhopping = false
+	
+	local function BunnyHop()
+	    if not localPlayer then return end
+	    local char = localPlayer.Character
+	    if not char then return end
+	    local humanoid = char:FindFirstChildOfClass("Humanoid")
+	
+	
+	    if humanoid then
+	        if humanoid:GetState() ~= Enum.HumanoidStateType.Freefall then
+	            humanoid.Jump = true
+	        end
+	    end
+	end
+	
+	uis.InputBegan:Connect(function(key, processed)
+	    if processed and key.KeyCode == Enum.KeyCode.Space then
+	       bunnyhopping = true
+	    end
+	end)
+	
+	uis.InputEnded:Connect(function(key)
+	    if key.KeyCode == Enum.KeyCode.Space then
+	        bunnyhopping = false
+	    end
+	end)
+	
+	rs.Heartbeat:Connect(function()
+	    if bunnyhopping and config.MISC_BunnyHop then
+	        BunnyHop()
+	    end
+	end)
+end;
+task.spawn(C_27);
+-- StarterGui.Sigmaware.Cheats.Aimbot
+local function C_28()
+local script = G2L["28"];
+	-- Aimbot
+end;
+task.spawn(C_28);
+-- StarterGui.Sigmaware.Cheats.TriggerBot
+local function C_29()
+local script = G2L["29"];
+	local ConfigModule = require(script.Parent.Parent["Config Manager"])
+	local config = _G.Config
+	
+	local lp = game.Players.LocalPlayer
+	local mouse = lp:GetMouse()
+	local players = game:GetService("Players")
+	local rs = game:GetService("RunService")
+	local uis = game:GetService("UserInputService")
+	local camera = game.Workspace.CurrentCamera
+	
+	local triggerONKEY = false
+	local triggerKey = config.TRIGGERBOT_Key
+	
+	rs.RenderStepped:Connect(function()
+	    if config.AIMBOT_TriggerBot and triggerONKEY then
+	        local rayOrigin = camera.CFrame.Position
+	        local rayDirection = camera.CFrame.LookVector * 1000
+	
+	        local params = RaycastParams.new()
+	        params.FilterDescendantsInstances = {lp.Character}
+	        params.FilterType = Enum.RaycastFilterType.Exclude
+	
+	        local result = workspace:Raycast(rayOrigin, rayDirection, params)
+	
+	        if result and result.Instance then
+	            local hitPart = result.Instance
+	            local character = hitPart:FindFirstAncestorOfClass("Model")
+	            local player = players:GetPlayerFromCharacter(character)
+	
+	            if player and player ~= lp and player:GetAttribute("Team") ~= lp:GetAttribute("Team") then
+	                task.wait(math.clamp((config.TRIGGERBOT_Delay / 1000), 0.001, 1)) -- delay in ms
+	                mouse1click()
+	            end
+	        end
+	    end
+	end)
+	
+	uis.InputBegan:Connect(function(key)
+	    if key.KeyCode == triggerKey then
+	        triggerONKEY = true
+	    end
+	end)
+	
+	uis.InputEnded:Connect(function(key)
+	    if key.KeyCode == triggerKey then
+	        triggerONKEY = false
+	    end
+	end)
+end;
+task.spawn(C_29);
+-- StarterGui.Sigmaware.Cheats.ESP
+local function C_2a()
+local script = G2L["2a"];
+	local ConfigModule = require(script.Parent.Parent["Config Manager"])
+	local config = _G.Config
+	
+	local players = game:GetService("Players")
+	local uis = game:GetService("UserInputService")
+	local rs = game:GetService("RunService")
+	local https = game:GetService("HttpService")
+	local localPlayer = game.Players.LocalPlayer
+	local camera = game.Workspace.CurrentCamera
+	
+	local function ESP(player : Player)
+	    if player ~= localPlayer and player.Character then
+	        if not player or not player.Character then
+	            return
+	        end
+	
+	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+	        
+	        if not humanoid then
+	            return
+	        end
+	        
+	        local team = player:GetAttribute("Team")
+	
+	        --local armorInfo = https:JSONDecode(player:GetAttribute("Armor"))
+	        local health = math.round(humanoid.Health)
+	        
+	        if not health then return end
+	
+	        if player.Character:FindFirstChild("xxx") then
+	            local esp = player.Character:FindFirstChild("xxx")
+	            if config.ESP_Box == true then
+	                esp.Box.Visible = true
+	            else
+	                esp.Box.Visible = false
+	            end
+	
+	            if config.ESP_HealthBar == true then
+	                esp.HealthBar.Visible = true
+	                if health then
+	                    esp.HealthBar.Size = UDim2.new(0.005, 0, (health / 100) * 0.6, 0)
+	                end
+	            else
+	                esp.HealthBar.Visible = false
+	            end
+	
+	            if config.ESP_HealthText == true then
+	                esp.Left.HealthText.Visible = true
+	                if health then
+	                    esp.Left.HealthText.Text = tostring(health)
+	                end
+	            else
+	                esp.Left.HealthText.Visible = false
+	            end
+	
+	            if config.ESP_Name == true then
+	                esp.name.Visible = true
+	                esp.name.Text = player.Name
+	            else
+	                esp.name.Visible = false
+	            end
+	
+	            if config.ESP_Pfp == true then
+	                esp.pfp.Visible = true
+	                esp.pfp.Image = players:GetUserThumbnailAsync(player.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+	            else
+	                esp.pfp.Visible = false
+	            end
+	
+	            if config.ESP_Distance == true then
+	                esp.Bottom.meters.Visible = true
+	                if player.Character and localPlayer.Character then
+	                    local distance = math.round((player.Character.HumanoidRootPart.Position - localPlayer.Character.HumanoidRootPart.Position).Magnitude)
+	                    esp.Bottom.meters.Text = tostring(distance) .. "m"
+	                end
+	            else
+	                esp.Bottom.meters.Visible = false
+	            end
+	        elseif team == localPlayer:GetAttribute("Team") then
+	            if player.Character:FindFirstChild("xxx") then
+	                player.Character:FindFirstChild("xxx"):Destroy()
+	            end
+	        else
+	            if team ~= localPlayer:GetAttribute("Team") and health > 0 then
+	                local espClone = script.Parent.Parent.xxx:Clone()
+	
+	                espClone.Parent = player.Character
+	                espClone.Adornee = player.Character:FindFirstChild("HumanoidRootPart")
+	                espClone.Enabled = true
+	            else
+	                if player.Character:FindFirstChild("xxx") then
+	                    player.Character:FindFirstChild("xxx"):Destroy()
+	                end
+	            end
+	        end
+	    end
+	end
+	
+	rs.Heartbeat:Connect(function()
+	    -- ESP
+	    if config.ESP_Enabled == true then
+	        for _, p in pairs(players:GetPlayers()) do
+	            ESP(p)
+	        end
+	    end
+	end)
+	
+	-- Skeleton ESP
+	
+	local SkeletonLines = {}
+	
+	local BonePairs = {
+	    {"Head", "UpperTorso"},
+	    {"UpperTorso", "LowerTorso"},
+	    {"UpperTorso", "LeftUpperArm"}, {"LeftUpperArm", "LeftLowerArm"}, {"LeftLowerArm", "LeftHand"},
+	    {"UpperTorso", "RightUpperArm"}, {"RightUpperArm", "RightLowerArm"}, {"RightLowerArm", "RightHand"},
+	    {"LowerTorso", "LeftUpperLeg"}, {"LeftUpperLeg", "LeftLowerLeg"}, {"LeftLowerLeg", "LeftFoot"},
+	    {"LowerTorso", "RightUpperLeg"}, {"RightUpperLeg", "RightLowerLeg"}, {"RightLowerLeg", "RightFoot"}
+	}
+	
+	local function createSkeleton(player)
+	    if SkeletonLines[player] then return end
+	
+	    local lines = {}
+	    for i = 1, #BonePairs do
+	        local line = Drawing.new("Line")
+	        line.Visible = false
+	        line.Color = Color3.new(1, 1, 1)
+	        line.Thickness = 1.5
+	        line.Transparency = 1
+	        lines[i] = line
+	    end
+	    SkeletonLines[player] = lines
+	end
+	
+	rs.RenderStepped:Connect(function()
+	    for _, player in pairs(players:GetPlayers()) do
+	        local lines = SkeletonLines[player]
+	
+	        if not player.Parent then
+	            if lines then
+	                for _, l in pairs(lines) do l:Remove() end
+	                SkeletonLines[player] = nil
+	            end
+	            continue
+	        end
+	
+	        if not lines then createSkeleton(player) continue end
+	
+	        local char = player.Character
+	        
+	        if char and config.ESP_Skeleton and config.ESP_Enabled and player ~= localPlayer then
+	            local humanoid = char:FindFirstChildOfClass("Humanoid")
+	
+	            if humanoid and humanoid.Health > 0 and player:GetAttribute("Team") ~= localPlayer:GetAttribute("Team") then
+	                for i, pair in pairs(BonePairs) do
+	                    local part1 = char:FindFirstChild(pair[1])
+	                    local part2 = char:FindFirstChild(pair[2])
+	                    local line = lines[i]
+	
+	                    if part1 and part2 then
+	                        local pos1, onScreen1 = camera:WorldToViewportPoint(part1.Position)
+	                        local pos2, onScreen2 = camera:WorldToViewportPoint(part2.Position)
+	
+	                        if onScreen1 and onScreen2 then
+	                            line.From = Vector2.new(pos1.X, pos1.Y)
+	                            line.To = Vector2.new(pos2.X, pos2.Y)
+	                            line.Visible = true
+	                        else
+	                            line.Visible = false
+	                        end
+	                    else
+	                        line.Visible = false
+	                    end
+	                end
+	            else
+	                for _, l in pairs(lines) do l.Visible = false end
+	            end
+	        else
+	            for _, l in pairs(lines) do l.Visible = false end
+	        end
+	    end
+	end)
+end;
+task.spawn(C_2a);
+-- StarterGui.Sigmaware.Cheats.Glow
+local function C_2b()
+local script = G2L["2b"];
+	local ConfigModule = require(script.Parent.Parent["Config Manager"])
+	local config = _G.Config
+	
+	local players = game:GetService("Players")
+	local uis = game:GetService("UserInputService")
+	local rs = game:GetService("RunService")
+	local https = game:GetService("HttpService")
+	local localPlayer = game.Players.LocalPlayer
+	
+	-- ESP GLOW
+	local function ESP_GLOW(player : Player)
+	    if player ~= localPlayer and player.Character then
+	        if not player or not player.Character then
+	            return
+	        end
+	
+	        local humanoid = player.Character:FindFirstChildOfClass("Humanoid")
+	        local team = player:GetAttribute("Team")
+	
+	        if team == localPlayer:GetAttribute("Team") then
+	            if player.Character:FindFirstChild("some") then
+	                player.Character:FindFirstChild("some"):Destroy()
+	            end
+	            return
+	        elseif not player.Character:FindFirstChild("some") then
+	            local highlight = Instance.new("Highlight")
+	            highlight.Name = "some"
+	            highlight.Parent = player.Character
+	            highlight.OutlineColor = Color3.fromRGB(255, 255, 255)
+	            highlight.FillTransparency = 1
+	        end
+	        
+	        humanoid.Died:Connect(function()
+	            if player.Character:FindFirstChild("some") then
+	                player.Character:FindFirstChild("some"):Destroy()
+	            end
+	        end)
+	    end
+	end
+	
+	local function ESP_GLOW_DELETE()
+	    for _, v in pairs(game:GetService("Players"):GetPlayers()) do
+	        if v ~= game.Players.LocalPlayer and v.Character then
+	            if v.Character:FindFirstChild("some") then
+	                v.Character:FindFirstChild("some"):Destroy()
+	            end
+	        end
+	    end 
+	end
+	
+	rs.Heartbeat:Connect(function()
+	    -- ESP
+	    if config.ESP_Enabled == true then
+	        if config.ESP_Glow == true then
+	            for _, p in pairs(players:GetPlayers()) do
+	                ESP_GLOW(p)
+	            end
+	        else
+	            ESP_GLOW_DELETE()
+	        end
+	    else
+	        ESP_GLOW_DELETE()
+	    end
+	
+	end)
+end;
+task.spawn(C_2b);
 
 return G2L["1"], require;
